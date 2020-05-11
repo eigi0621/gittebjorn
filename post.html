@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <main id="main">
+    <div id="fill"></div>
+  </main>
+
+  <script>
+    const slug = new URLSearchParams(window.location.search).get("slug");
+    let URLend = `posts?slug=${slug}`;
+    let endpoint = `http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-json/wp/v2/${URLend}`;
+    let json = [];
+
+    document.addEventListener("DOMContentLoaded", hentJSON);
+
+    async function hentJSON() {
+      const response = await fetch(endpoint);
+      json = await response.json();
+      json = json[0];
+
+      document.querySelector("#fill").innerHTML = `${json.content.rendered}`;
+    }
+  </script>
+</body></html>
