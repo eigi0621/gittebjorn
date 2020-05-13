@@ -12,3 +12,11 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+section {
+  width: 100vw;
+  height: 100vh;
+}
+
+section:nth-child(odd) {
+  background: grey;
+}
