@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/jQ.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jQ.js"></script>
 </head>
 
 <body>
@@ -17,6 +17,7 @@
   <section></section>
   <section></section>
   <section></section>
+  <img src="img/p%C3%A5fugl_kagespatel_gittebjorn_2.jpeg" alt="">
   <section></section>
   <section></section>
   <section></section>
@@ -38,9 +39,14 @@
 
       document.querySelector("#fill").innerHTML = `${json.content.rendered}`;
     }
-
   </script>
-  <script src="assets/js/smoothScroll.js"></script>
-</body>
+  <script>
+    let img = document.querySelector("img");
+    var rect = img.getBoundingClientRect();
+    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    img.addEventListener("click", () => {
 
-</html>
+    })
+  </script>
+  <script src="js/smoothScroll.js"></script>
+</body></html>
