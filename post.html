@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/lge2vfw.css">
   <script src="js/jQ.js"></script>
 </head>
 
@@ -14,10 +15,13 @@
     <div id="fill"></div>
   </main>
   <section></section>
+  <div id="img_wrap">
+    <img src="img/p%C3%A5fugl_kagespatel_gittebjorn_2.jpeg" alt="">
+  </div>
+  <h1>A quick brown fox jumps over the lazy dog↗</h1>
   <section></section>
   <section></section>
   <section></section>
-  <img src="img/p%C3%A5fugl_kagespatel_gittebjorn_2.jpeg" alt="">
   <section></section>
   <section></section>
   <section></section>
@@ -26,27 +30,26 @@
 
   <script>
     const slug = new URLSearchParams(window.location.search).get("slug");
-    let URLend = `posts?slug=${slug}`;
-    let endpoint = `http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-json/wp/v2/${URLend}`;
-    let json = [];
+    let wp = `http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-json/wp/v2/`;
 
-    document.addEventListener("DOMContentLoaded", hentJSON);
+    document.addEventListener("DOMContentLoaded", hentJSON_forside);
 
-    async function hentJSON() {
-      const response = await fetch(endpoint);
-      json = await response.json();
+    async function hentJSON_forside() {
+      let wpEnd = `posts?slug=${slug}`;
+      const response = await fetch(wp + wpEnd);
+      let json = await response.json();
       json = json[0];
 
       document.querySelector("#fill").innerHTML = `${json.content.rendered}`;
     }
   </script>
-  <script>
+  <!--<script>
     let img = document.querySelector("img");
-    var rect = img.getBoundingClientRect();
-    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    let rect;
     img.addEventListener("click", () => {
-
+      rect = document.querySelector("#img_wrap").getBoundingClientRect();
+      img.style.transform = `translateY(${-rect.top}px)`;
     })
-  </script>
+  </script>-->
   <script src="js/smoothScroll.js"></script>
 </body></html>

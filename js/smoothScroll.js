@@ -1,4 +1,4 @@
-function oceanwpVerticalHeader() {
+function startSmooth() {
   function e() {
     O.keyboardSupport && f("keydown", n)
   }
@@ -349,5 +349,5 @@ function oceanwpVerticalHeader() {
 var $window = ($j = jQuery.noConflict())(window);
 $j(document).on("ready", function () {
   "use strict";
-  oceanwpVerticalHeader()
+  startSmooth()
 });
