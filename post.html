@@ -6,35 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/forside.css">
   <link rel="stylesheet" href="https://use.typekit.net/lge2vfw.css">
   <script src="js/jQ.js"></script>
 </head>
 
 <body>
   <main id="main">
-    <div id="fill"></div>
+
   </main>
-  <section></section>
-  <div id="img_wrap">
-    <img src="img/p%C3%A5fugl_kagespatel_gittebjorn_2.jpeg" alt="">
-  </div>
-  <h1>A quick brown fox jumps over the lazy dog↗</h1>
-  <section></section>
-  <section></section>
-  <section></section>
-  <section></section>
-  <section></section>
-  <section></section>
-  <section></section>
-  <section></section>
 
   <script>
-    const slug = new URLSearchParams(window.location.search).get("slug");
+    //const slug = new URLSearchParams(window.location.search).get("slug");
     let wp = `http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-json/wp/v2/`;
 
-    document.addEventListener("DOMContentLoaded", hentJSON_forside);
+    document.addEventListener("DOMContentLoaded", hentJSON);
 
-    async function hentJSON_forside() {
+    async function hentJSON() {
       let wpEnd = `posts?slug=${slug}`;
       const response = await fetch(wp + wpEnd);
       let json = await response.json();
@@ -43,13 +31,5 @@
       document.querySelector("#fill").innerHTML = `${json.content.rendered}`;
     }
   </script>
-  <!--<script>
-    let img = document.querySelector("img");
-    let rect;
-    img.addEventListener("click", () => {
-      rect = document.querySelector("#img_wrap").getBoundingClientRect();
-      img.style.transform = `translateY(${-rect.top}px)`;
-    })
-  </script>-->
   <script src="js/smoothScroll.js"></script>
 </body></html>
