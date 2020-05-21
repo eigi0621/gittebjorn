@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Hatton';
-  src: url('fonts/hatton5.woff2') format('woff2-variations');
+  src: url('fonts/hattonvariable.woff2') format('woff2-variations');
   font-style: normal;
   font-weight: 200 800;
 }
@@ -76,6 +76,9 @@ p {
 
 
 
+
+
+
 /*=======================================================*/
 /*NAV*/
 /*=======================================================*/
@@ -101,6 +104,12 @@ nav {
 }
 
 nav img {
+  top: 7px;
+  position: relative;
+  width: 200px;
+}
+
+#anim {
   top: 7px;
   position: relative;
   width: 200px;
