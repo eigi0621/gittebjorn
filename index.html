@@ -46,23 +46,6 @@
       rederer: "svg",
       path: "img/gb_logo_animation.json"
     })
-
-    let playing = true;
-
-    document.querySelector("#anim svg").addEventListener("mouseover", replayAnimation);
-    document.querySelector("#anim svg").addEventListener("mouseout", () => {
-      console.log("1");
-      playing = true;
-    });
-
-    function replayAnimation() {
-      if (playing == true) {
-        animation.goToAndPlay(0, true);
-        console.log(playing);
-      }
-      playing = false;
-    }
-
   </script>
   <script src="js/smoothScroll.js"></script>
 </body>

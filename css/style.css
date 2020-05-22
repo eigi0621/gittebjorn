@@ -23,7 +23,7 @@ img {
 
 #main {
   width: 100vw;
-  padding: 0 100px;
+  padding: 100px 100px 0 100px;
 }
 
 a {
@@ -49,11 +49,21 @@ h2 {
 }
 
 h3 {
+  font-size: 1rem;
+  font-family: mr-eaves-sans, sans-serif;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  text-transform: uppercase;
+  transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+h4 {
   font-size: 2rem;
   font-family: 'Hatton';
-  font-weight: 330;
-  letter-spacing: 0rem;
+  font-weight: 200;
+  letter-spacing: .1rem;
   transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+  -webkit-text-stroke: .5px black;
 }
 
 p {
@@ -85,11 +95,13 @@ p {
 
 header {
   width: 100vw;
-  height: 100px;
+  height: 60px;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
+  right: 0;
+  bottom: 0;
+  background: #fff;
   z-index: 50;
   display: flex;
   justify-content: center;
@@ -100,25 +112,94 @@ nav {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-nav img {
-  top: 7px;
-  position: relative;
-  width: 200px;
-}
-
+nav img,
 #anim {
-  top: 7px;
   position: relative;
-  width: 200px;
+  width: 150px;
+  margin: 14px 100px 0 100px;
 }
 
-nav p {
-  padding: 5px;
-  margin: 0 50px;
+.nav_link {
+  padding: 10px;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  font-family: mr-eaves-sans, sans-serif;
+  letter-spacing: .3rem;
   text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: .2rem;
+  height: 60px;
+  position: relative;
+  background: #fff;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.nav_link:hover {
+  color: #B1946E;
+}
+
+nav ul {
+  width: calc(100% - 2px);
+  list-style: none;
+  position: absolute;
+  z-index: -1;
+  transform: translateY(calc(10px - 100%));
+  transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+  margin: 0 0 0 -9px;
+  background: #000;
+}
+
+nav li {
+  line-height: 1rem;
+  font-weight: 300;
+  background: #000;
+}
+
+nav li:first-child {
+  padding: 5px 0 0;
+}
+
+nav li:last-child {
+  padding: 0 0 5px;
+}
+
+nav li a {
+  display: block;
+  width: 100%;
+  font-weight: 300;
+  color: #fff;
+  padding: 6px 0 6px 10px;
+  margin: 4px 0;
+  transition: .3s;
+}
+
+.nav_link:hover ul {
+  transform: translateY(10px);
+}
+
+.nav_link a:hover {
+  background: #B1946E;
+}
+
+
+
+
+/*=======================================================*/
+/*GRID TEST*/
+/*=======================================================*/
+#main_grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: ". h3 h4 h4 . .";
+}
+
+#main_grid h3 {
+  grid-area: h3;
+}
+
+#main_grid div {
+  grid-area: h4;
 }
