@@ -346,8 +346,7 @@ function startSmooth() {
     return k
   }) : "object" == typeof exports ? module.exports = k : window.SmoothScroll = k
 }
-var $window = ($j = jQuery.noConflict())(window);
-$j(document).on("ready", function () {
+document.addEventListener("DOMContentLoaded", () => {
   "use strict";
   startSmooth()
 });
