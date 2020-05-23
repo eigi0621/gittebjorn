@@ -30,12 +30,41 @@ smykkekurser.textContent = "smykkekurser";
 smykkekurser.classList.add("nav_link");
 var logo = document.createElement("img");
 logo.src = "img/gb_logo_svg.svg";
+logo.id = "logo";
+logo.alt = "Gitte Bjørn logo";
 var logo_link = document.createElement("a");
 logo_link.href = "index.html";
 logo_link.appendChild(logo);
-nav.appendChild(gitteBjorn);
+var burger_wrap = document.createElement("div");
+burger_wrap.classList.add("burger_wrap");
+var burger1 = document.createElement("img");
+burger1.src = "img/burger1.svg";
+burger1.id = "burger1";
+var burger2 = document.createElement("img");
+burger2.src = "img/burger2.svg";
+burger2.id = "burger2";
+var burger3 = document.createElement("img");
+burger3.src = "img/burger3.svg";
+burger3.id = "burger3";
+burger_wrap.appendChild(burger1);
+burger_wrap.appendChild(burger2);
+burger_wrap.appendChild(burger3);
+var nav_link_wrap = document.createElement("div");
+nav_link_wrap.classList.add("nav_link_wrap");
+nav_link_wrap.appendChild(gitteBjorn);
+nav_link_wrap.appendChild(smykkekurser);
 nav.appendChild(logo_link);
-nav.appendChild(smykkekurser);
+nav.appendChild(nav_link_wrap);
+nav.appendChild(burger_wrap);
 
 var ul = document.createElement("ul");
 smykkekurser.appendChild(ul);
+
+
+
+burger_wrap.addEventListener("click", () => {
+  nav_link_wrap.classList.toggle("burger_show");
+  burger1.classList.toggle("burger1");
+  burger2.classList.toggle("burger2");
+  burger3.classList.toggle("burger3");
+})
