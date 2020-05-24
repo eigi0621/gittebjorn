@@ -188,10 +188,12 @@ nav {
   z-index: -1;
   transform: translateX(100%);
   transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+  opacity: 0;
 }
 
 .burger_show {
   transform: translateX(0);
+  opacity: 1;
 }
 
 .nav_link {
@@ -213,8 +215,8 @@ nav {
 }
 
 nav ul {
-  margin: 0 10px 0 0;
   list-style: none;
+  height: 0;
 }
 
 nav li {
@@ -317,3 +319,23 @@ footer a {
 #main_grid div {
   grid-area: h4;
 }*/
+
+
+
+/*=======================================================*/
+/*SCROLLMAGIC TEST*/
+/*=======================================================*/
+#footer {
+  height: 100vh;
+}
+
+.content_wrap {
+  transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.fade_in {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -36,18 +36,7 @@
   /*NAV*/
   /*=======================================================*/
 
-  .nav_link a:hover {
-    background: #B1946E;
-  }
 
-  nav ul {
-    overflow: hidden;
-    height: 0;
-  }
-
-  .nav_link:hover ul {
-    height: 180px;
-  }
 
   /*=======================================================*/
   /*FOOTER*/
