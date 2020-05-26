@@ -5,6 +5,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-wrap: break-word;
+  font-variant-numeric: lining-nums;
+  -moz-font-feature-settings: "lnum";
+  -webkit-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
 }
 
 body {
@@ -29,7 +33,6 @@ a {
 /*=======================================================*/
 
 h1 {
-  display: inline;
   font-size: 2.5rem;
   font-family: nobel, sans-serif;
   font-weight: 700;
@@ -40,7 +43,6 @@ h1 {
 }
 
 h2 {
-  display: inline;
   font-size: 1.7rem;
   font-family: nobel, sans-serif;
   font-weight: 700;
@@ -51,26 +53,25 @@ h2 {
 }
 
 h3 {
-  font-size: 1rem;
-  font-family: garamond-atf-micro, serif;
+  font-size: 1.5rem;
+  font-family: mrs-eaves-roman-all-small-ca, sans-serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: .3rem;
-  text-transform: uppercase;
-  margin: 3rem 0 2rem 0;
+  margin: .5rem 0 2rem 0;
 }
 
 h4 {
   font-size: 1.5rem;
-  font-family: garamond-atf-micro, serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: mrs-eaves, serif;
+  font-weight: 700;
+  font-style: italic;
 }
 
 p {
   font-size: 1.3rem;
   font-family: nobel, sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
   margin: .5rem 0 2rem 0;
 }
@@ -186,7 +187,7 @@ nav {
   padding: 10px 30px 10px 35px;
   font-size: .8rem;
   font-weight: 700;
-  font-family: mr-eaves-sans, sans-serif;
+  font-family: nobel, sans-serif;
   letter-spacing: .1rem;
   text-transform: uppercase;
   text-align: end;
@@ -291,20 +292,23 @@ footer a {
 /*=======================================================*/
 /*GRID TEST*/
 /*=======================================================*/
-/*#main_grid {
+.content_wrap {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-areas: ". h3 h4 h4 . .";
 }
 
-#main_grid h3 {
+.layout_section h3 {
   grid-area: h3;
 }
 
-#main_grid div {
+.layout_section .besk_wrap {
   grid-area: h4;
-}*/
+}
 
+section.layout_section {
+  margin: 100px 0;
+}
 
 
 /*=======================================================*/

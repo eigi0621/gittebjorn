@@ -24,9 +24,11 @@ async function hentJSON() {
 var nav = document.querySelector("nav");
 var gitteBjorn = document.createElement("a");
 gitteBjorn.textContent = "gitte bjørn";
+gitteBjorn.href = "gitte-bjorn.html"
 gitteBjorn.classList.add("nav_link");
 var smykkekurser = document.createElement("a");
 smykkekurser.textContent = "smykkekurser";
+smykkekurser.href = "smykkekurser.html"
 smykkekurser.classList.add("nav_link");
 var logo = document.createElement("img");
 logo.src = "img/gb_logo_svg.svg";
