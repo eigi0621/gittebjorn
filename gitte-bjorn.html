@@ -56,18 +56,36 @@
 
     #content_list li {
       list-style: none;
+      cursor: pointer;
+      line-height: 0;
+      display: block;
     }
 
     #content_list li p {
+      width: max-content;
       font-size: .7rem;
       font-weight: 400;
       font-style: normal;
       letter-spacing: .05rem;
       text-transform: uppercase;
+      padding: 15px 0;
+      overflow: hidden;
+    }
+
+    #content_list li:hover p .underline {
+      transform: translate(0, 6px);
     }
 
     #content_list_wrap {
       height: 100%;
+    }
+
+    .underline {
+      width: 100%;
+      height: 2px;
+      background: #464743;
+      transform: translate(-100%, 6px);
+      transition: .7s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     @media only screen and (min-width: 600px) {
@@ -250,7 +268,6 @@
       }
 
     }
-
   </style>
 </head>
 
@@ -346,13 +363,21 @@
         li.dataset.number = N;
         let p = document.createElement("p");
         p.innerHTML = t.title.rendered;
+        let underline = document.createElement("div");
+        underline.classList.add("underline");
+        p.appendChild(underline);
         li.appendChild(p);
         document.querySelector("#content_list").appendChild(li);
 
         li.addEventListener("click", function() {
           var targetSection = `.layout_section:nth-child(7n+${this.dataset.number})`;
           console.log(this.dataset.number);
-          controller.scrollTo(targetSection);
+
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: targetSection,
+            ease: "power3.inOut"
+          })
           console.log("click");
         })
 
@@ -362,12 +387,12 @@
 
       setTimeout(scroller, 100);
     }
-
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
   <script src="js/smoothScroll.js"></script>
 
   <script>
@@ -397,10 +422,10 @@
         var ourScene = new ScrollMagic.Scene({
             triggerElement: "#content_list_wrap",
             duration: scrollHeight,
-            triggerHook: .2
+            triggerHook: .1
           })
           .setTween(tl)
-          .addIndicators()
+          //.addIndicators()
           .addTo(controller)
           .setPin("#content_list_wrap");
       }
@@ -412,8 +437,5 @@
 
 
     }
-
   </script>
-</body>
-
-</html>
+</body></html>
