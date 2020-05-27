@@ -16,8 +16,8 @@
   }
 
   h3 {
-  font-size: 1.3rem;
-  margin: .47rem 0 2rem 0;
+    font-size: 1.3rem;
+    margin: .47rem 0 2rem 0;
   }
 
   h4 {
@@ -45,23 +45,23 @@
   }
 
   /*=======================================================*/
-/*GRID TEST*/
-/*=======================================================*/
-.content_wrap {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas: ". h3 h4 h4 . .";
-}
+  /*GRID TEST*/
+  /*=======================================================*/
+  .content_wrap {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: ". h3 h4 h4 . .";
+  }
 
-.layout_section h3 {
-  grid-area: h3;
-}
+  .layout_section h3 {
+    grid-area: h3;
+  }
 
-.layout_section .besk_wrap {
-  grid-area: h4;
-}
+  .layout_section .besk_wrap {
+    grid-area: h4;
+  }
 
-section.layout_section {
-  margin: 100px 0;
-}
+  section.layout_section {
+    margin: 0 0 300px 0;
+  }
 }
