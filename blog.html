@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne">
+    <title>Gitte Bjorn</title>
+    <link rel="stylesheet" href="css/basestyle.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lge2vfw.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+</head>
+
+
+<body>
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <main id="main">
+        <main id="main_grid">
+            <h1>Bladguldet</h1>
+            <p>Bladguldet er mit bud på en blog, hvor jeg løbende vil skrive om alt hvad der rør sig i min verden af håndværk og kreativitet. Jeg håber I vil følge med. Måske vil I blive inspireret. Måske vil I blot få et smil på læben.</p>
+        </main>
+        <div id="fill"></div>
+    </main>
+    <footer id="footer">
+        <div class="footer_info">
+            <h4>Gitte Bjørn Smykkekurser</h4>
+            <p>Prags Boulevard 63C, 2300 København S</p>
+            <a href="mailto:kontakt@gittebjorn.dk">
+                <p>kontakt@gittebjorn.dk</p>
+            </a>
+            <a href="cookies-og-privatlivspolitik.html">
+                <p>Cookie- og privatlivspolitik</p>
+            </a>
+            <div class="footer_img">
+                <img src="img/insta.svg" alt="instagram ikon">
+                <img src="img/fb.svg" alt="facebook ikon">
+                <img src="img/yt.svg" alt="youtube ikon">
+            </div>
+        </div>
+        <div class="footer_logo">
+            <img src="img/gb_logo_svg_w.svg" alt="Gitte Bjørn Logo">
+            <p>KEA MMD 2. sem. eksamen 2020</p>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", hentJSON_blog);
+
+        async function hentJSON_blog() {
+            let wpEnd = `blog?_fields=title,h4,p,cta,img`;
+            const response = await fetch(wp + wpEnd);
+            let json = await response.json();
+
+            json.forEach((t) => {
+                let s = document.createElement("section");
+                s.classList.add("layout_section");
+                let content_wrap = document.createElement("div");
+                content_wrap.classList.add("content_wrap");
+                let h3 = document.createElement("h3");
+                h3.textContent = t.title.rendered;
+                let besk_wrap = document.createElement("div");
+                besk_wrap.classList.add("besk_wrap");
+                let h4 = document.createElement("h4");
+                h4.textContent = t.h4;
+                let p = document.createElement("p");
+                p.textContent = t.p;
+                let cta = document.createElement("button");
+                cta.textContent = t.cta;
+                besk_wrap.appendChild(h4);
+                besk_wrap.appendChild(p);
+                besk_wrap.appendChild(cta);
+                content_wrap.appendChild(h3);
+                content_wrap.appendChild(besk_wrap);
+                if (t.img) {
+                    t.img.forEach((u) => {
+                        let img = document.createElement("img");
+                        img.src = u.guid;
+                        img.alt = u.post_excerpt;
+                        content_wrap.appendChild(img);
+                    })
+                }
+                s.appendChild(content_wrap);
+                document.querySelector("#fill").appendChild(s);
+            })
+
+        }
+
+    </script>
+
+</body>
+
+</html>
