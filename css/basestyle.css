@@ -350,7 +350,7 @@ section.layout_section {
 /*=======================================================*/
 /*SCROLLMAGIC TEST*/
 /*=======================================================*/
-#footer {
+/*#footer {
   height: 100vh;
 }
 
@@ -363,4 +363,4 @@ section.layout_section {
 .fade_in {
   opacity: 1;
   transform: translateY(0);
-}
+}*/
