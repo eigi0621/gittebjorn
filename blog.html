@@ -77,7 +77,7 @@
         document.addEventListener("DOMContentLoaded", hentJSON_blog);
 
         async function hentJSON_blog() {
-            let wpEnd = `blog?_fields=title,dato,h4,kort_tekst,img`;
+            let wpEnd = `blog?_fields=title,dato,h4,kort_tekst,img,cta`;
             const response = await fetch(wp + wpEnd);
             let json = await response.json();
 
@@ -88,15 +88,24 @@
                 content_wrap.classList.add("content_wrap");
                 let besk_wrap = document.createElement("div");
                 besk_wrap.classList.add("besk_wrap");
+                let button_wrap = document.createElement("div");
+                button_wrap.classList.add("button_wrap");
+
                 let dato = document.createElement("dato");
                 dato.textContent = t.dato;
                 let h4 = document.createElement("h4");
                 h4.textContent = t.h4;
                 let kort_tekst = document.createElement("kort_tekst");
                 kort_tekst.textContent = t.kort_tekst;
+                let blog_txt = document.createElement("div");
+                let cta = document.createElement("button");
+                cta.textContent = t.cta;
+
                 besk_wrap.appendChild(dato);
                 besk_wrap.appendChild(h4);
                 besk_wrap.appendChild(kort_tekst);
+                button_wrap.appendChild(cta);
+                besk_wrap.appendChild(button_wrap);
                 content_wrap.appendChild(besk_wrap);
                 if (t.img) {
                     t.img.forEach((u) => {
