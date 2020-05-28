@@ -26,11 +26,36 @@
         }
 
         dato {
-            width: max-content;
+            width: nobel, sans-serif;
             font-size: .7rem;
             font-weight: 400;
             font-style: normal;
-            letter-spacing: .05rem;
+            letter-spacing: .09rem;
+        }
+
+        .blog_layout_section {
+            margin-bottom: 50px;
+        }
+
+
+        @media only screen and (min-width: 1200px) {
+            #fill {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+
+            .blog_layout_section:nth-child(2) {
+                grid-column: 3/4;
+            }
+
+            .blog_layout_section:nth-child(3) {
+                grid-column: 2/4;
+            }
+
+            .blog_layout_section:nth-child(5) {
+                grid-column: 3/4;
+            }
         }
 
     </style>
@@ -83,39 +108,46 @@
 
             json.forEach((t) => {
                 let s = document.createElement("section");
-                s.classList.add("layout_section");
-                let content_wrap = document.createElement("div");
-                content_wrap.classList.add("content_wrap");
-                let besk_wrap = document.createElement("div");
-                besk_wrap.classList.add("besk_wrap");
-                let button_wrap = document.createElement("div");
-                button_wrap.classList.add("button_wrap");
+                s.classList.add("blog_layout_section");
+
+                let blog_content_wrap = document.createElement("div");
+                blog_content_wrap.classList.add("blog_content_wrap");
+
+                let blog_besk_wrap = document.createElement("div");
+                blog_besk_wrap.classList.add("blog_besk_wrap");
+
+                let blog_button_wrap = document.createElement("div");
+                blog_button_wrap.classList.add("blog_button_wrap");
+
+                let blog_img_wrap = document.createElement("div");
+                blog_img_wrap.classList.add("blog_img_wrap");
 
                 let dato = document.createElement("dato");
                 dato.textContent = t.dato;
+
                 let h4 = document.createElement("h4");
                 h4.textContent = t.h4;
+
+                let img = document.createElement("img");
+                img.src = t.img;
+
                 let kort_tekst = document.createElement("kort_tekst");
                 kort_tekst.textContent = t.kort_tekst;
-                let blog_txt = document.createElement("div");
+
                 let cta = document.createElement("button");
                 cta.textContent = t.cta;
 
-                besk_wrap.appendChild(dato);
-                besk_wrap.appendChild(h4);
-                besk_wrap.appendChild(kort_tekst);
-                button_wrap.appendChild(cta);
-                besk_wrap.appendChild(button_wrap);
-                content_wrap.appendChild(besk_wrap);
-                if (t.img) {
-                    t.img.forEach((u) => {
-                        let img = document.createElement("img");
-                        img.src = u.guid;
-                        img.alt = u.post_excerpt;
-                        content_wrap.appendChild(img);
-                    })
-                }
-                s.appendChild(content_wrap);
+                blog_besk_wrap.appendChild(blog_img_wrap);
+                blog_img_wrap.appendChild(img);
+                blog_besk_wrap.appendChild(dato);
+                blog_besk_wrap.appendChild(h4);
+                blog_besk_wrap.appendChild(kort_tekst);
+
+                blog_button_wrap.appendChild(cta);
+                blog_besk_wrap.appendChild(blog_button_wrap);
+                blog_content_wrap.appendChild(blog_besk_wrap);
+
+                s.appendChild(blog_content_wrap);
                 document.querySelector("#fill").appendChild(s);
             })
 
