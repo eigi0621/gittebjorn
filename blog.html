@@ -16,6 +16,41 @@
     <link rel="manifest" href="img/favicon/site.webmanifest">
 
     <style>
+        .main_grid {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            top: -100px;
+            left: -30px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .splash_col {
+            flex-grow: 1;
+            flex-basis: 300px;
+        }
+
+        figure.splash_col {
+            overflow: hidden;
+        }
+
+        div.splash_col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 5%;
+        }
+
+        #gitte_img {
+            width: 100%;
+            height: 100%;
+            background-image: url(img/gitte.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
         kort_tekst {
             font-size: 1.1rem;
             font-family: nobel, sans-serif;
@@ -68,9 +103,15 @@
         </nav>
     </header>
     <main id="main">
-        <main id="main_grid">
-            <h1>Bladguldet</h1>
-            <p>Bladguldet er mit bud på en blog, hvor jeg løbende vil skrive om alt hvad der rør sig i min verden af håndværk og kreativitet. Jeg håber I vil følge med. Måske vil I blive inspireret. Måske vil I blot få et smil på læben.</p>
+        <main class="main_grid">
+            <figure class="img_wrap splash_col">
+                <div id="gitte_img"> </div>
+            </figure>
+            <div class="splash_col">
+                <p>Velkommen til </p>
+                <h1>Bladguldet</h1>
+                <p>Bladguldet er mit bud på en blog, hvor jeg løbende vil skrive om alt hvad der rør sig i min verden af håndværk og kreativitet. Jeg håber I vil følge med. Måske vil I blive inspireret. Måske vil I blot få et smil på læben.</p>
+            </div>
         </main>
         <div id="fill">
         </div>
