@@ -2,132 +2,253 @@
 <html lang="da">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne">
-  <title>Gitte Bjorn</title>
-  <link rel="stylesheet" href="css/basestyle.css">
-  <link rel="stylesheet" href="css/tablet.css">
-  <link rel="stylesheet" href="css/desktop.css">
-  <link rel="stylesheet" href="https://use.typekit.net/lge2vfw.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-  <link rel="manifest" href="img/favicon/site.webmanifest">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne">
+    <title>Gitte Bjorn</title>
+    <link rel="stylesheet" href="css/basestyle.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lge2vfw.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <style>
+        img {
+            width: 100%;
+        }
+
+        #main_grid {
+            display: grid;
+            grid-gap: 30px;
+
+            grid-template-columns: repeat(2, 1fr);
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            top: -100px;
+            left: -30px;
+
+        }
+
+        .img_wrap {
+            grid-column: 1/2;
+            overflow: hidden;
+
+        }
+
+        .txt_wrap {
+            grid-column: 2/3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 5%;
+        }
+
+        .img_wrap img {
+            width: 100%;
+            height: 100%;
+            background-image: url(img/gitte.jpg);
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+
+        }
+
+        .smyk_content_wrap {
+            display: grid;
+        }
+
+
+        @media only screen and (min-width: 600px) {
+            #main_grid {
+                top: -100px;
+                left: -100px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .smyk_content_wrap {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .smyk_layout_section:nth-child(1) h3 {
+                grid-column: 2/3;
+            }
+
+            .smyk_layout_section:nth-child(1) .smyk_besk_wrap {
+                grid-column: 3/5;
+            }
+
+            .smyk_layout_section:nth-child(1) img {
+                grid-column: 1/7;
+            }
+
+            .smyk_layout_section:nth-child(2) h3 {
+                font-size: 3rem;
+                line-height: 3.5rem;
+                grid-column: 3/5;
+            }
+
+            .smyk_layout_section:nth-child(2) .smyk_besk_wrap {
+                grid-column: 5/7;
+                margin: 20px 0;
+            }
+
+            .smyk_layout_section:nth-child(2) .smyk_content_wrap img:nth-child(3) {
+                grid-column: 1/3;
+            }
+
+            .smyk_layout_section:nth-child(2) .smyk_content_wrap img:nth-child(4) {
+                grid-column: 3/5;
+                margin-top: 200px;
+            }
+
+            .smyk_layout_section:nth-child(2) .smyk_content_wrap img:nth-child(5) {
+                grid-column: 5/7;
+                margin-top: 80px;
+            }
+    </style>
 </head>
 
 <body>
-  <header>
-    <nav>
-    </nav>
-  </header>
-  <main id="main">
-    <main id="main_grid">
-      <h1>Danmarks bedste smykke&shy;værksted</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi expedita consectetur sequi in perferendis, iusto fugiat unde reiciendis amet vel suscipit voluptas rerum mollitia, molestiae eligendi maxime animi aliquam numquam.</p>
-      <h2>Weekend og special&shy;kurser</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi expedita consectetur sequi in perferendis, iusto fugiat unde reiciendis amet vel suscipit voluptas rerum mollitia, molestiae eligendi maxime animi aliquam numquam.</p>
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <main id="main">
+        <main id="main_grid">
+
+        </main>
+        <div id="fill"></div>
     </main>
-    <div id="fill"></div>
-  </main>
-  <footer id="footer">
-    <div class="footer_info">
-      <h4>Gitte Bjørn Smykkekurser</h4>
-      <p>Prags Boulevard 63C, 2300 København S</p>
-      <a href="mailto:kontakt@gittebjorn.dk">
-        <p>kontakt@gittebjorn.dk</p>
-      </a>
-      <a href="cookies-og-privatlivspolitik.html">
-        <p>Cookie- og privatlivspolitik</p>
-      </a>
-      <div class="footer_img">
-        <img src="img/insta.svg" alt="instagram ikon">
-        <img src="img/fb.svg" alt="facebook ikon">
-        <img src="img/yt.svg" alt="youtube ikon">
-      </div>
-    </div>
-    <div class="footer_logo">
-      <img src="img/gb_logo_svg_w.svg" alt="Gitte Bjørn Logo">
-      <p>KEA MMD 2. sem. eksamen 2020</p>
-    </div>
-  </footer>
-  <script src="js/menu.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
+    <footer id="footer">
+        <div class="footer_info">
+            <h4>Gitte Bjørn Smykkekurser</h4>
+            <p>Prags Boulevard 63C, 2300 København S</p>
+            <a href="mailto:kontakt@gittebjorn.dk">
+                <p>kontakt@gittebjorn.dk</p>
+            </a>
+            <a href="cookies-og-privatlivspolitik.html">
+                <p>Cookie- og privatlivspolitik</p>
+            </a>
+            <div class="footer_img">
+                <img src="img/insta.svg" alt="instagram ikon">
+                <img src="img/fb.svg" alt="facebook ikon">
+                <img src="img/yt.svg" alt="youtube ikon">
+            </div>
+        </div>
+        <div class="footer_logo">
+            <img src="img/gb_logo_svg_w.svg" alt="Gitte Bjørn Logo">
+            <p>KEA MMD 2. sem. eksamen 2020</p>
+        </div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script>
+        let jsonIntro = [];
+        document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
 
-    async function hentJSON_smykkekurser() {
-      let wpEnd = `om_smykkekurser?_fields=title,h4,p,cta,img`;
-      const response = await fetch(wp + wpEnd);
-      let json = await response.json();
+        async function hentJSON_smykkekurser() {
+            let wpEnd = `om_smykkekurser?_fields=title,h4,p,cta,img`;
+            const response = await fetch(wp + wpEnd);
+            let json = await response.json();
 
-      json.forEach((t) => {
-        let s = document.createElement("section");
-        s.classList.add("layout_section");
-        let content_wrap = document.createElement("div");
-        content_wrap.classList.add("content_wrap");
-        let h3 = document.createElement("h3");
-        h3.textContent = t.title.rendered;
-        let besk_wrap = document.createElement("div");
-        besk_wrap.classList.add("besk_wrap");
-        let h4 = document.createElement("h4");
-        h4.textContent = t.h4;
-        let p = document.createElement("p");
-        p.textContent = t.p;
-        let cta = document.createElement("button");
-        cta.textContent = t.cta;
-        besk_wrap.appendChild(h4);
-        besk_wrap.appendChild(p);
+            let wpEndIntro = `pages?slug=smykkekurser&_embed`;
+            const responseIntro = await fetch(wp + wpEndIntro);
+            let jsonIntro = await responseIntro.json();
+            console.log(jsonIntro);
 
-        if (t.cta) {
-          besk_wrap.appendChild(cta);
+            jsonIntro.forEach((q) => {
+                let smykkekurser_img_wrap = document.createElement("div");
+                smykkekurser_img_wrap.classList.add("img_wrap");
+
+                let smykkekurser_img = document.createElement("img");
+                smykkekurser_img.src = `${q._embedded['wp:featuredmedia'][0].source_url
+                }`;
+
+                let smykkekurser_txt = document.createElement("div");
+                smykkekurser_txt.classList.add("txt_wrap");
+
+                smykkekurser_txt.innerHTML = `${q.content.rendered}`;
+
+                smykkekurser_img_wrap.appendChild(smykkekurser_img);
+                document.querySelector("#main_grid").appendChild(smykkekurser_img_wrap);
+                document.querySelector("#main_grid").appendChild(smykkekurser_txt);
+
+                let smykkekurser_btn = document.createElement("button");
+                smykkekurser_btn.innerHTML = "Se vores kurser ->";
+                smykkekurser_txt.appendChild(smykkekurser_btn);
+                smykkekurser_txt.insertBefore(smykkekurser_btn, smykkekurser_txt.childNodes[4]);
+
+
+            });
+
+            json.forEach((t) => {
+                let s = document.createElement("section");
+                s.classList.add("smyk_layout_section");
+                let content_wrap = document.createElement("div");
+                content_wrap.classList.add("smyk_content_wrap");
+                let h3 = document.createElement("h3");
+                h3.textContent = t.title.rendered;
+                let besk_wrap = document.createElement("div");
+                besk_wrap.classList.add("smyk_besk_wrap");
+                let h4 = document.createElement("h4");
+                h4.textContent = t.h4;
+                let p = document.createElement("p");
+                p.textContent = t.p;
+                let cta = document.createElement("button");
+                cta.textContent = t.cta;
+                besk_wrap.appendChild(h4);
+                besk_wrap.appendChild(p);
+
+                if (t.cta) {
+                    besk_wrap.appendChild(cta);
+                }
+                content_wrap.appendChild(h3);
+                content_wrap.appendChild(besk_wrap);
+                if (t.img) {
+                    t.img.forEach((u) => {
+                        let img = document.createElement("img");
+                        img.src = u.guid;
+                        img.alt = u.post_excerpt;
+                        content_wrap.appendChild(img);
+                    })
+                }
+                s.appendChild(content_wrap);
+                document.querySelector("#fill").appendChild(s);
+            })
+
+            scroller();
         }
-        content_wrap.appendChild(h3);
-        content_wrap.appendChild(besk_wrap);
-        if (t.img) {
-          t.img.forEach((u) => {
-            let img = document.createElement("img");
-            img.src = u.guid;
-            img.alt = u.post_excerpt;
-            content_wrap.appendChild(img);
-          })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="js/smoothScroll.js"></script>
+
+    <script>
+        function scroller() {
+            var controller = new ScrollMagic.Controller();
+
+            document.querySelectorAll(".layout_section").forEach((s) => {
+                var ourScene = new ScrollMagic.Scene({
+                        triggerElement: s,
+                        triggerHook: 1
+                    })
+                    .setClassToggle(s.querySelector(".content_wrap"), "fade_in")
+                    //.addIndicators()
+                    .addTo(controller);
+            })
+
+
+
+
+
+
+
+
         }
-        s.appendChild(content_wrap);
-        document.querySelector("#fill").appendChild(s);
-      })
-
-      scroller();
-    }
-
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-  <script src="js/smoothScroll.js"></script>
-
-  <script>
-    function scroller() {
-      var controller = new ScrollMagic.Controller();
-
-      document.querySelectorAll(".layout_section").forEach((s) => {
-        var ourScene = new ScrollMagic.Scene({
-            triggerElement: s,
-            triggerHook: 1
-          })
-          .setClassToggle(s.querySelector(".content_wrap"), "fade_in")
-          //.addIndicators()
-          .addTo(controller);
-      })
-
-
-
-
-
-
-
-
-    }
-
-  </script>
-</body>
-
-</html>
+    </script>
+</body></html>
