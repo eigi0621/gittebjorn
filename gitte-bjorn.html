@@ -660,8 +660,8 @@
         <p>Mit kreative arbejde er tæt forbundet med kroppen. Da jeg startede i 1993 fyldte smykkerne mest i mit univers. I dag lægger jeg langt det meste af min energi i at skabe objekter og korpusarbejder.
           Fælles for mine værker på tværs af genrer, teknikker og temaer er kærligheden til at forme i metal.
           Jeg arbejder fokuseret mod en soloudstilling med et fast tema, der også styrer prioriteringen af min arbejdsindsats.</p>
-        <button>Kontakt</button>
-        <button>Se Gitte Bjørns CV</button>
+        <button id="se_kontakt">Kontakt</button>
+        <button id="se_cv">Se Gitte Bjørns CV</button>
       </div>
     </div>
     <div id="fill_wrap">
@@ -701,6 +701,36 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
   <script src="js/smoothScroll.js"></script>
+  <script src="js/totop.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser_splash);
+
+    async function hentJSON_smykkekurser_splash() {
+      let wpEnd = `pages/29?_fields=content`;
+      const response = await fetch(wp + wpEnd);
+      let json = await response.json();
+
+      console.log(json);
+
+      let cv = document.createElement("div");
+      cv.id = "cv_list";
+      cv.innerHTML = json.content.rendered;
+      document.querySelector("#fill_wrap").appendChild(cv);
+    }
+
+
+    document.querySelector("#se_cv").addEventListener("click", () => {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: ".cv_group",
+        ease: "power3.inOut"
+      })
+    })
+    document.querySelector("#se_kontakt").addEventListener("click", () => {
+      location.href = "kontakt.html"
+    })
+
+  </script>
   <script>
     document.querySelector("header").style.position = "absolute";
 
@@ -803,13 +833,6 @@
 
       if (window.innerWidth > 1200) {
         var scrollHeight = document.querySelector("#fill").clientHeight - window.innerHeight;
-        console.log(scrollHeight);
-
-        window.addEventListener("resize", () => {
-          scrollHeight = document.querySelector("#fill").clientHeight - window.innerHeight;
-          ourScene.update(true);
-          ourScene.refresh();
-        })
 
         var tl = gsap.timeline()
 
@@ -896,6 +919,32 @@
           //.addIndicators()
           .addTo(controller)
       })
+
+      var timelineCV = gsap.timeline()
+
+      timelineCV.to("#main", {
+          background: "#fff",
+          ease: "power1.inOut"
+        }, 0)
+        .to("#main *", {
+          color: "#000",
+          ease: "power1.inOut"
+        }, 0)
+        .to("button", {
+          background: "#000",
+          color: "#fff",
+          ease: "power1.inOut"
+        }, 0)
+
+
+      var scene = new ScrollMagic.Scene({
+          triggerElement: ".cv_group",
+          duration: "25%",
+          triggerHook: .7 //bottom
+        })
+        .setTween(timelineCV)
+        //.addIndicators()
+        .addTo(controller)
 
 
     }
