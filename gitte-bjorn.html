@@ -17,12 +17,11 @@
   <style>
     .splash_col_wrap {
       width: 100vw;
-      height: 100vh;
       position: relative;
-      top: -100px;
+      top: -30px;
       left: -30px;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: wrap-reverse;
     }
 
     .splash_col {
@@ -31,7 +30,8 @@
     }
 
     figure.splash_col {
-      overflow: hidden;
+      min-height: 400px;
+      /*overflow: hidden;*/
     }
 
     div.splash_col {
@@ -104,10 +104,366 @@
       z-index: 2;
     }
 
+    #fill_wrap {
+      display: grid;
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas: "cl"
+        "fill";
+    }
+
+    #content_list {
+      grid-area: cl;
+    }
+
+    #fill {
+      grid-area: fill;
+      overflow: hidden;
+    }
+
+    .layout_section button {
+      width: auto;
+      display: block;
+      margin-top: 30px;
+      font-size: 1rem;
+      letter-spacing: .3rem;
+    }
+
+    section.layout_section h3 {
+      margin: .3rem 0 1rem 0;
+    }
+
+    section.layout_section:nth-child(7n+1) .content_wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "i"
+        "t"
+        "i2";
+    }
+
+    section.layout_section:nth-child(7n+1) .content_wrap .besk_wrap {
+      grid-area: t;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    section.layout_section:nth-child(7n+1) .content_wrap img:nth-of-type(1) {
+      grid-area: i;
+    }
+
+    section.layout_section:nth-child(7n+1) .content_wrap img:nth-of-type(2) {
+      grid-area: i2;
+      width: 66%;
+    }
+
+
+
+    section.layout_section:nth-child(7n+2) .content_wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "i"
+        "t";
+    }
+
+    section.layout_section:nth-child(7n+2) .content_wrap .besk_wrap {
+      grid-area: t;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    section.layout_section:nth-child(7n+2) .content_wrap img {
+      grid-area: i;
+    }
+
+
+
+    section.layout_section:nth-child(7n+3) .content_wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "t"
+        "i";
+    }
+
+    section.layout_section:nth-child(7n+3) .content_wrap .besk_wrap {
+      grid-area: t;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    section.layout_section:nth-child(7n+3) .content_wrap img {
+      grid-area: i;
+    }
+
+
+
+    section.layout_section:nth-child(7n+4) .content_wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "i"
+        "t"
+        "i2";
+    }
+
+    section.layout_section:nth-child(7n+4) .content_wrap .besk_wrap {
+      grid-area: t;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    section.layout_section:nth-child(7n+4) .content_wrap img:nth-of-type(1) {
+      grid-area: i;
+    }
+
+    section.layout_section:nth-child(7n+4) .content_wrap img:nth-of-type(2) {
+      grid-area: i2;
+      width: 66%;
+    }
+
+
+
+    section.layout_section:nth-child(7n+5) .content_wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "t"
+        "i"
+    }
+
+    section.layout_section:nth-child(7n+5) .content_wrap .besk_wrap {
+      grid-area: t;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    section.layout_section:nth-child(7n+5) .content_wrap img {
+      grid-area: i;
+    }
+
+
+
+    section.layout_section:nth-child(7n+6) .content_wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "i"
+        "t";
+    }
+
+    section.layout_section:nth-child(7n+6) .content_wrap .besk_wrap {
+      grid-area: t;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    section.layout_section:nth-child(7n+6) .content_wrap img {
+      grid-area: i;
+    }
+
+
+
+    section.layout_section:nth-child(7n+7) .content_wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "t"
+        "i";
+    }
+
+    section.layout_section:nth-child(7n+7) .content_wrap .besk_wrap {
+      grid-area: t;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    section.layout_section:nth-child(7n+7) .content_wrap img {
+      grid-area: i;
+    }
+
     @media only screen and (min-width: 600px) {
+
+      #content_list li p {
+        padding: 5px 0;
+      }
+
+
+      #content_list li:last-child p {
+        margin-bottom: 100px;
+      }
+
       .splash_col_wrap {
         top: -100px;
         left: -100px;
+      }
+
+      #fill_wrap {
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "cl"
+          "fill";
+      }
+
+      #content_list {
+        grid-area: cl;
+      }
+
+      #fill {
+        grid-area: fill;
+        overflow: hidden;
+      }
+
+      section.layout_section:nth-child(7n+1) .content_wrap {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2);
+        grid-template-areas: "t i i"
+          "i2 . .";
+      }
+
+      section.layout_section:nth-child(7n+1) .content_wrap .besk_wrap {
+        grid-area: t;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      section.layout_section:nth-child(7n+1) .content_wrap img:nth-of-type(1) {
+        grid-area: i;
+      }
+
+      section.layout_section:nth-child(7n+1) .content_wrap img:nth-of-type(2) {
+        grid-area: i2;
+      }
+
+
+
+      section.layout_section:nth-child(7n+2) .content_wrap {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2);
+        grid-template-areas: "i i ."
+          ". t t";
+      }
+
+      section.layout_section:nth-child(7n+2) .content_wrap .besk_wrap {
+        grid-area: t;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      section.layout_section:nth-child(7n+2) .content_wrap img {
+        grid-area: i;
+      }
+
+
+
+      section.layout_section:nth-child(7n+3) .content_wrap {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "t i i";
+      }
+
+      section.layout_section:nth-child(7n+3) .content_wrap .besk_wrap {
+        grid-area: t;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      section.layout_section:nth-child(7n+3) .content_wrap img {
+        grid-area: i;
+      }
+
+
+
+      section.layout_section:nth-child(7n+4) .content_wrap {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "i i t"
+          ". . i2";
+      }
+
+      section.layout_section:nth-child(7n+4) .content_wrap .besk_wrap {
+        grid-area: t;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      section.layout_section:nth-child(7n+4) .content_wrap img:nth-of-type(1) {
+        grid-area: i;
+      }
+
+      section.layout_section:nth-child(7n+4) .content_wrap img:nth-of-type(2) {
+        grid-area: i2;
+      }
+
+
+
+      section.layout_section:nth-child(7n+5) .content_wrap {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2);
+        grid-template-areas: ". t t"
+          "i i i";
+      }
+
+      section.layout_section:nth-child(7n+5) .content_wrap .besk_wrap {
+        grid-area: t;
+      }
+
+      section.layout_section:nth-child(7n+5) .content_wrap img {
+        grid-area: i;
+      }
+
+
+
+      section.layout_section:nth-child(7n+6) .content_wrap {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: ". i i"
+          "t t .";
+      }
+
+      section.layout_section:nth-child(7n+6) .content_wrap .besk_wrap {
+        grid-area: t;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      section.layout_section:nth-child(7n+6) .content_wrap img {
+        grid-area: i;
+      }
+
+
+
+      section.layout_section:nth-child(7n+7) .content_wrap {
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "i i t";
+      }
+
+      section.layout_section:nth-child(7n+7) .content_wrap .besk_wrap {
+        grid-area: t;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      section.layout_section:nth-child(7n+7) .content_wrap img {
+        grid-area: i;
       }
     }
 
@@ -377,8 +733,14 @@
         aarstal.textContent = t.aarstal;
         let titel = document.createElement("h4");
         titel.innerHTML = t.title.rendered;
+        let cta = document.createElement("button");
+        cta.textContent = "læs mere";
+        cta.addEventListener("click", () => {
+          location.href = `vaerk.html?id=${s.dataset.secnr}`;
+        })
         besk_wrap.appendChild(aarstal);
         besk_wrap.appendChild(titel);
+        besk_wrap.appendChild(cta);
         content_wrap.appendChild(besk_wrap);
         if (t.img) {
           let img = document.createElement("img");
@@ -490,264 +852,52 @@
 
 
 
-        document.querySelector("#main").style.background = "rgba(255, 255, 255, 1)";
-
-        var bg1 = document.querySelector("#vaerker_section_1").dataset.bg;
-        var txt1 = document.querySelector("#vaerker_section_1").dataset.txt;
-
-        var timeline1 = gsap.timeline()
-
-        timeline1.to("#main", {
-            background: "#" + bg1,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt1,
-            ease: "power1.inOut"
-          }, 0)
-
-
-        var scene1 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_1 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline1)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg2 = document.querySelector("#vaerker_section_2").dataset.bg;
-        var txt2 = document.querySelector("#vaerker_section_2").dataset.txt;
-
-        var timeline2 = gsap.timeline()
-
-        timeline2.to("#main", {
-            background: "#" + bg2,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt2,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene2 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_2 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline2)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg3 = document.querySelector("#vaerker_section_3").dataset.bg;
-        var txt3 = document.querySelector("#vaerker_section_3").dataset.txt;
-
-        var timeline3 = gsap.timeline()
-
-        timeline3.to("#main", {
-            background: "#" + bg3,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt3,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene3 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_3 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline3)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg4 = document.querySelector("#vaerker_section_4").dataset.bg;
-        var txt4 = document.querySelector("#vaerker_section_4").dataset.txt;
-
-        var timeline4 = gsap.timeline()
-
-        timeline4.to("#main", {
-            background: "#" + bg4,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt4,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene4 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_4 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline4)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg5 = document.querySelector("#vaerker_section_5").dataset.bg;
-        var txt5 = document.querySelector("#vaerker_section_5").dataset.txt;
-
-        var timeline5 = gsap.timeline()
-
-        timeline5.to("#main", {
-            background: "#" + bg5,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt5,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene5 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_5 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline5)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg6 = document.querySelector("#vaerker_section_6").dataset.bg;
-        var txt6 = document.querySelector("#vaerker_section_6").dataset.txt;
-
-        var timeline6 = gsap.timeline()
-
-        timeline6.to("#main", {
-            background: "#" + bg6,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt6,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene6 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_6 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline6)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg7 = document.querySelector("#vaerker_section_7").dataset.bg;
-        var txt7 = document.querySelector("#vaerker_section_7").dataset.txt;
-
-        var timeline7 = gsap.timeline()
-
-        timeline7.to("#main", {
-            background: "#" + bg7,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt7,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene7 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_7 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline7)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg8 = document.querySelector("#vaerker_section_8").dataset.bg;
-        var txt8 = document.querySelector("#vaerker_section_8").dataset.txt;
-
-        var timeline8 = gsap.timeline()
-
-        timeline8.to("#main", {
-            background: "#" + bg8,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt8,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene8 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_8 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline8)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg9 = document.querySelector("#vaerker_section_9").dataset.bg;
-        var txt9 = document.querySelector("#vaerker_section_9").dataset.txt;
-
-        var timeline9 = gsap.timeline()
-
-        timeline9.to("#main", {
-            background: "#" + bg9,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt9,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene9 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_9 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline9)
-          //.addIndicators()
-          .addTo(controller)
-
-
-
-        var bg10 = document.querySelector("#vaerker_section_10").dataset.bg;
-        var txt10 = document.querySelector("#vaerker_section_10").dataset.txt;
-
-        var timeline10 = gsap.timeline()
-
-        timeline10.to("#main", {
-            background: "#" + bg10,
-            ease: "power1.inOut"
-          }, 0)
-          .to("#main *", {
-            color: "#" + txt10,
-            ease: "power1.inOut"
-          }, 0)
-
-        var scene10 = new ScrollMagic.Scene({
-            triggerElement: "#vaerker_section_10 .content_wrap",
-            duration: 500,
-            triggerHook: .7 //bottom
-          })
-          .setTween(timeline10)
-          //.addIndicators()
-          .addTo(controller)
-
-
 
 
 
 
 
       }
+
+
+      document.querySelector("#main").style.background = "rgba(255, 255, 255, 1)";
+      var K = 0;
+
+      document.querySelectorAll(".layout_section").forEach((s) => {
+        K++;
+
+
+        var bg = s.dataset.bg;
+        var txt = s.dataset.txt;
+
+        var timeline = gsap.timeline()
+
+        timeline.to("#main", {
+            background: "#" + bg,
+            ease: "power1.inOut"
+          }, 0)
+          .to("#main *", {
+            color: "#" + txt,
+            ease: "power1.inOut"
+          }, 0)
+          .to("button", {
+            background: "#" + txt,
+            color: "#" + bg,
+            ease: "power1.inOut"
+          }, 0)
+
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: s,
+            duration: "25%",
+            triggerHook: .7 //bottom
+          })
+          .setTween(timeline)
+          //.addIndicators()
+          .addTo(controller)
+      })
+
+
     }
 
   </script>

@@ -121,22 +121,8 @@
   /*=======================================================*/
   /*GRID TEST*/
   /*=======================================================*/
-  .content_wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "h3 h4 h4";
-    grid-column-gap: 30px;
-  }
-
-  .layout_section h3 {
-    grid-area: h3;
-  }
-
-  .layout_section .besk_wrap {
-    grid-area: h4;
-  }
 
   section.layout_section {
-    margin: 100px 0;
+    margin: 0 0 200px 0;
   }
 }

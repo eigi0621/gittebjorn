@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne">
+  <title></title>
+  <link rel="stylesheet" href="css/basestyle.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="https://use.typekit.net/lge2vfw.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <style>
+    img {
+      width: 100%;
+      margin: 50px 0;
+    }
+
+    section.layout_section {
+      margin: 0;
+    }
+
+    .content_wrap img:nth-of-type(6n+2) {
+      width: 50%;
+    }
+
+    .content_wrap img:nth-of-type(6n+4) {
+      width: 66%;
+    }
+
+    .content_wrap img:nth-of-type(6n+6) {
+      width: 50%;
+    }
+
+    @media only screen and (min-width: 600px) {
+
+      img {
+        width: 100%;
+        margin-bottom: 200px;
+      }
+
+      .content_wrap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "t . i1"
+          "i2 . ."
+          ". i3 i3"
+          "i4 i4 i4"
+          ". i5 i5"
+          "i6 i6 .";
+      }
+
+      .splash_wrap {
+        grid-area: t;
+        width: 100%;
+      }
+
+      .content_wrap img:nth-of-type(6n+1) {
+        grid-area: i1;
+      }
+
+      .content_wrap img:nth-of-type(6n+2) {
+        grid-area: i2;
+      }
+
+      .content_wrap img:nth-of-type(6n+3) {
+        grid-area: i3;
+      }
+
+      .content_wrap img:nth-of-type(6n+4) {
+        grid-area: i4;
+      }
+
+      .content_wrap img:nth-of-type(6n+5) {
+        grid-area: i5;
+      }
+
+      .content_wrap img:nth-of-type(6n+6) {
+        grid-area: i6;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+      section.layout_section {
+        margin: 0;
+      }
+
+      img {
+        width: 100%;
+        margin-bottom: 200px;
+      }
+
+      .content_wrap {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: "t t . i1 i1 i1"
+          ". i2 i2 . . ."
+          ". . . i3 i3 i3"
+          "i4 i4 i4 i4 i4 i4"
+          ". . i5 i5 i5 ."
+          "i6 i6 i6 i6 . .";
+      }
+
+      .splash_wrap {
+        grid-area: t;
+      }
+
+      .content_wrap img:nth-of-type(6n+1) {
+        grid-area: i1;
+      }
+
+      .content_wrap img:nth-of-type(6n+2) {
+        grid-area: i2;
+      }
+
+      .content_wrap img:nth-of-type(6n+3) {
+        grid-area: i3;
+      }
+
+      .content_wrap img:nth-of-type(6n+4) {
+        grid-area: i4;
+      }
+
+      .content_wrap img:nth-of-type(6n+5) {
+        grid-area: i5;
+      }
+
+      .content_wrap img:nth-of-type(6n+6) {
+        grid-area: i6;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main id="main"></main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
+  <script src="js/smoothScroll.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
+
+    let wp = `http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-json/wp/v2/`;
+    let N = 0;
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+
+
+    async function hentJSON_smykkekurser() {
+      let wpEnd = `vaerk?_fields=title,aarstal,beskrivelse,img,bg,txt&per_page=10`;
+      const response = await fetch(wp + wpEnd);
+      let json = await response.json();
+
+      json.forEach((t) => {
+
+        N++;
+
+
+        if (N == id) {
+          let s = document.createElement("section");
+          s.classList.add("layout_section");
+          s.dataset.secnr = N;
+          s.dataset.bg = t.bg;
+          s.dataset.txt = t.txt;
+          s.id = `vaerker_section_${N}`;
+          let content_wrap = document.createElement("div");
+          content_wrap.classList.add("content_wrap");
+          let splash_wrap = document.createElement("div");
+          splash_wrap.classList.add("splash_wrap");
+          let besk_wrap = document.createElement("div");
+          besk_wrap.classList.add("besk_wrap");
+          let aarstal = document.createElement("h4");
+          aarstal.textContent = t.aarstal;
+          let titel = document.createElement("h1");
+          titel.innerHTML = t.title.rendered;
+          let besk = document.createElement("p");
+          besk.innerHTML = t.beskrivelse;
+          let cta = document.createElement("button");
+          cta.textContent = "tilbage";
+          cta.addEventListener("click", () => {
+            location.href = `gitte-bjorn.html`;
+          })
+          besk_wrap.appendChild(aarstal);
+          besk_wrap.appendChild(titel);
+          besk_wrap.appendChild(besk);
+          besk_wrap.appendChild(cta);
+          splash_wrap.appendChild(besk_wrap);
+          content_wrap.appendChild(splash_wrap);
+          if (t.img) {
+            t.img.forEach((u) => {
+              let img = document.createElement("img");
+              img.src = u.guid;
+              img.alt = u.post_excerpt;
+              content_wrap.appendChild(img);
+            })
+
+          }
+          s.appendChild(content_wrap);
+          document.querySelector("#main").appendChild(s);
+
+          console.log(N);
+
+
+          document.querySelector("#main").style.background = "#" + t.bg;
+          document.querySelectorAll("*").forEach((s) => {
+            s.style.color = "#" + t.txt;
+          })
+          document.querySelector("button").style.background = "#" + t.txt;
+          document.querySelector("button").style.color = "#" + t.bg;
+        }
+
+
+      })
+    }
+  </script>
+</body></html>

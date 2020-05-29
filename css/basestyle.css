@@ -132,26 +132,29 @@ button:active {
 
 header {
   width: 100vw;
-  height: 40px;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #fff;
   z-index: 50;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 nav {
+  width: 100vw;
+  height: 40px;
   position: relative;
   z-index: 1;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  background: #fff;
+  visibility: visible;
 }
 
 #logo,
@@ -276,7 +279,6 @@ footer h4 {
   display: block;
   margin: 0 0 20px 0;
   color: #fff;
-  -webkit-text-stroke: .01rem #fff;
 }
 
 footer p {
@@ -319,7 +321,6 @@ footer a {
 .footer_logo p {
   font-size: 1rem;
   letter-spacing: .1rem;
-  white-space: nowrap;
 }
 
 /*=======================================================*/
@@ -342,7 +343,7 @@ footer a {
 */
 
 section.layout_section {
-  margin: 100px 0;
+  margin: 200px 0;
 }
 
 
