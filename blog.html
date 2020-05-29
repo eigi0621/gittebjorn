@@ -71,11 +71,15 @@
         }
 
         .blog_layout_section {
-            margin-bottom: 50px;
+            margin-bottom: 20px;
+
+            padding: 14px;
         }
 
         .blog_img_wrap {
             margin-bottom: 10px;
+            height: 200px;
+            overflow: hidden;
         }
 
         h4 {
@@ -83,32 +87,28 @@
             margin-top: 10px;
         }
 
-        .blog_button_wrap {
-            margin-top: 10px;
-        }
+        @media only screen and (min-width: 600px) {
+            #fill {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
 
+            div.splash_col {
+                margin-bottom: 0px;
+                margin-right: 50px;
+            }
+        }
 
         @media only screen and (min-width: 1200px) {
             #fill {
-                display: grid;
                 grid-template-columns: repeat(3, 1fr);
             }
 
             .blog_layout_section {
                 width: 25vw;
+                margin-bottom: 50px;
             }
 
-            .blog_layout_section:nth-child(2) {
-                grid-column: 3/4;
-            }
-
-            .blog_layout_section:nth-child(3) {
-                grid-column: 2/4;
-            }
-
-            .blog_layout_section:nth-child(5) {
-                grid-column: 3/4;
-            }
 
             .main_grid {
                 top: -100px;
@@ -118,6 +118,18 @@
                 margin-top: 0px;
                 margin-bottom: 0px;
             }
+
+            .blog_besk_wrap {
+                display: flex;
+                position: relative;
+                flex-direction: column;
+
+            }
+
+            .blog_img_wrap {
+                height: 170px;
+            }
+
         }
 
     </style>
@@ -205,7 +217,7 @@
                 let cta = document.createElement("button");
                 cta.textContent = t.cta;
 
-                blog_besk_wrap.appendChild(blog_img_wrap);
+                blog_content_wrap.appendChild(blog_img_wrap);
                 blog_img_wrap.appendChild(img);
                 blog_besk_wrap.appendChild(dato);
                 blog_besk_wrap.appendChild(h4);
