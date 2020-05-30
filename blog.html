@@ -71,7 +71,7 @@
     }
 
     .blog_layout_section {
-      margin-bottom: 20px;
+      margin-bottom: 100px;
       padding: 14px;
     }
 
@@ -130,7 +130,6 @@
       }
 
     }
-
   </style>
 </head>
 
@@ -209,7 +208,7 @@
         let blog_img_wrap = document.createElement("div");
         blog_img_wrap.classList.add("blog_img_wrap");
 
-        let dato = document.createElement("dato");
+        let dato = document.createElement("h3");
         dato.textContent = t.dato;
 
         let h4 = document.createElement("h4");
@@ -218,7 +217,7 @@
         let img = document.createElement("img");
         img.src = t.img.guid;
 
-        let kort_tekst = document.createElement("kort_tekst");
+        let kort_tekst = document.createElement("p");
         kort_tekst.textContent = t.kort_tekst;
 
         let cta = document.createElement("button");
@@ -244,9 +243,6 @@
       })
 
     }
-
   </script>
 
-</body>
-
-</html>
+</body></html>

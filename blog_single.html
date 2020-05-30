@@ -15,101 +15,32 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
   <link rel="manifest" href="img/favicon/site.webmanifest">
   <style>
-    img {
+    .blog_img_wrap {
+      width: 100vw;
+      height: 50vh;
+      position: relative;
+      left: -30px;
+      top: -100px;
+      overflow: hidden;
+      margin-bottom: -70px;
+    }
+
+    .blog_img {
+      height: 100%;
       width: 100%;
-      margin: 50px 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
-    section.layout_section {
-      margin: 0;
-    }
-
-    .splash_wrap {
-      grid-area: t;
-      width: 100%;
-    }
-
-    .content_wrap img:nth-of-type(6n+1) {
-      grid-area: i1;
-    }
-
-    .content_wrap img:nth-of-type(6n+2) {
-      grid-area: i2;
-      width: 50%;
-    }
-
-    .content_wrap img:nth-of-type(6n+3) {
-      grid-area: i3;
-    }
-
-    .content_wrap img:nth-of-type(6n+4) {
-      grid-area: i4;
-      width: 66%;
-    }
-
-    .content_wrap img:nth-of-type(6n+5) {
-      grid-area: i5;
-    }
-
-    .content_wrap img:nth-of-type(6n+6) {
-      grid-area: i6;
-      width: 50%;
-    }
-
-    @media only screen and (min-width: 600px) {
-
-      img {
-        width: 100%;
-        margin-bottom: 200px;
-      }
-
-      .content_wrap img:nth-of-type(6n+2) {
-        width: 100%;
-      }
-
-      .content_wrap img:nth-of-type(6n+4) {
-        width: 100%;
-      }
-
-      .content_wrap img:nth-of-type(6n+6) {
-        width: 100%;
-      }
-
-      .content_wrap {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-          "t . i1"
-          "i2 . ."
-          ". i3 i3"
-          "i4 i4 i4"
-          ". i5 i5"
-          "i6 i6 .";
+    @media only screen and (min-width: 800px) {
+      .blog_img_wrap {
+        left: -100px;
       }
     }
 
-    @media only screen and (min-width: 1200px) {
-      section.layout_section {
-        margin: 0;
-      }
+    @media only screen and (min-width: 1200px) {}
 
-      img {
-        width: 100%;
-        margin-bottom: 200px;
-      }
-
-      .content_wrap {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-areas:
-          "t t . i1 i1 i1"
-          ". i2 i2 . . ."
-          ". . . i3 i3 i3"
-          "i4 i4 i4 i4 i4 i4"
-          ". . i5 i5 i5 ."
-          "i6 i6 i6 i6 . .";
-      }
-    }
   </style>
 </head>
 
@@ -130,7 +61,7 @@
     document.addEventListener("DOMContentLoaded", hentJSON_blog);
 
     async function hentJSON_blog() {
-      let wpEnd = `blog?_fields=title,dato,h4,kort_tekst,img,cta`;
+      let wpEnd = `blog?_fields=title,dato,h4,lang_tekst,img,cta`;
       const response = await fetch(wp + wpEnd);
       let json = await response.json();
 
@@ -154,29 +85,30 @@
           let blog_img_wrap = document.createElement("div");
           blog_img_wrap.classList.add("blog_img_wrap");
 
-          let dato = document.createElement("dato");
+          let dato = document.createElement("h3");
           dato.textContent = t.dato;
 
-          let h4 = document.createElement("h4");
+          let h4 = document.createElement("h1");
           h4.textContent = t.h4;
 
-          let img = document.createElement("img");
-          img.src = t.img.guid;
+          let img = document.createElement("div");
+          img.classList.add("blog_img");
+          img.style.backgroundImage = `url(${t.img.guid})`;
 
-          let kort_tekst = document.createElement("kort_tekst");
-          kort_tekst.textContent = t.kort_tekst;
+          let lang_tekst = document.createElement("p");
+          lang_tekst.textContent = t.lang_tekst;
 
           let cta = document.createElement("button");
-          cta.textContent = t.cta;
+          cta.textContent = "tilbage";
           cta.addEventListener("click", () => {
-            location.href = `blog_single.html?id=${N}`;
+            location.href = `blog.html`;
           })
 
           blog_content_wrap.appendChild(blog_img_wrap);
           blog_img_wrap.appendChild(img);
           blog_besk_wrap.appendChild(dato);
           blog_besk_wrap.appendChild(h4);
-          blog_besk_wrap.appendChild(kort_tekst);
+          blog_besk_wrap.appendChild(lang_tekst);
 
           blog_button_wrap.appendChild(cta);
           blog_besk_wrap.appendChild(blog_button_wrap);
@@ -189,5 +121,8 @@
       })
 
     }
+
   </script>
-</body></html>
+</body>
+
+</html>
