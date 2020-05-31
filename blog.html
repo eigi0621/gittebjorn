@@ -80,7 +80,7 @@
         #line {
             height: 10px;
             width: 100%;
-            background-color: black;
+            background-color: #464743;
             margin-bottom: 40px;
         }
 
@@ -203,7 +203,6 @@
             json.forEach((t) => {
                 N++;
 
-
                 let s = document.createElement("section");
                 s.classList.add("blog_layout_section");
                 s.dataset.secnr = N;
@@ -231,6 +230,7 @@
 
                 let kort_tekst = document.createElement("p");
                 kort_tekst.textContent = t.kort_tekst;
+
 
                 let cta = document.createElement("button");
                 cta.textContent = t.cta;
