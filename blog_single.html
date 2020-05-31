@@ -33,13 +33,27 @@
             background-repeat: no-repeat;
         }
 
+        iframe {
+            width: 100%;
+        }
+
+        .blog_besk_wrap {
+            margin-bottom: 60px;
+        }
+
+
         @media only screen and (min-width: 800px) {
             .blog_img_wrap {
                 left: -100px;
             }
         }
 
-        @media only screen and (min-width: 1200px) {}
+        @media only screen and (min-width: 1200px) {
+            .wp-block-column {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+        }
 
     </style>
 </head>
@@ -61,7 +75,7 @@
         document.addEventListener("DOMContentLoaded", hentJSON_blog);
 
         async function hentJSON_blog() {
-            let wpEnd = `blog?_fields=title,dato,h4,lang_tekst,img,cta`;
+            let wpEnd = `blog?_fields=content,title,dato,h4,img,cta`;
             const response = await fetch(wp + wpEnd);
             let json = await response.json();
 
@@ -95,10 +109,10 @@
                     img.classList.add("blog_img");
                     img.style.backgroundImage = `url(${t.img.guid})`;
 
-                    let lang_tekst = document.createElement("p");
-                    lang_tekst.textContent = t.lang_tekst;
+                    let video = document.createElement("div");
+                    video.classList.add("video_wrap");
 
-
+                    video.innerHTML = `${t.content.rendered}`;
 
                     let cta = document.createElement("button");
                     cta.textContent = "tilbage";
@@ -111,11 +125,13 @@
                     blog_besk_wrap.appendChild(dato);
 
                     blog_besk_wrap.appendChild(h4);
-                    blog_besk_wrap.appendChild(lang_tekst);
+                    blog_besk_wrap.appendChild(video);
 
                     blog_button_wrap.appendChild(cta);
                     blog_besk_wrap.appendChild(blog_button_wrap);
                     blog_content_wrap.appendChild(blog_besk_wrap);
+
+
 
                     s.appendChild(blog_content_wrap);
                     document.querySelector("#main").appendChild(s);
