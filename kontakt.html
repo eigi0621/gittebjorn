@@ -32,22 +32,30 @@
             text-decoration: underline;
         }
 
-        h1,
-        p,
-        a {
-            color: #654D87;
+        p {
+            line-height: 2.5rem;
         }
+
 
 
         @media only screen and (min-width: 600px) {
             .kontakt_main {
                 display: grid;
-                grid-template-columns: repeat(2, 2fr);
+
             }
 
             #map {
-                grid-column-start: 2;
-                grid-row-start: 2;
+                grid-column-start: 3;
+                grid-row-start: 3;
+            }
+
+            #fill {
+                grid-column-start: 1;
+
+            }
+
+            iframe {
+                width: 400px;
             }
 
         }
@@ -69,24 +77,8 @@
     </header>
     <main id="main">
         <main class="kontakt_main">
-            <div class="splash_col">
-                <h1>Kontakt</h1>
-                <ul>
-                    <li>
-                        <p>Gitte Bjørns Værksted</p>
-                    </li>
-                    <li>
-                        <p>Prags Boulevard 63C, 2300 København S</p>
-                    </li>
-                    <li>
-                        <p>Danmark</p>
-                    </li>
-                    <li>
-                        <a href="mailto:kontakt@gittebjorn.dk">
-                            <p>kontakt@gittebjorn.dk</p>
-                        </a>
-                    </li>
-                </ul>
+            <h1>kontakt</h1>
+            <div id="fill">
             </div>
             <div id="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1730.099021309092!2d12.614944395727775!3d55.668989881514385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653accad5cfffff%3A0xfec7ddbf5e11c08b!2sPrags%20Blvd.%2063c%2C%202300%20K%C3%B8benhavn!5e0!3m2!1sda!2sdk!4v1590916970732!5m2!1sda!2sdk" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -118,6 +110,26 @@
     <script src="js/menu.js"></script>
     <script src="js/smoothScroll.js"></script>
     <script src="js/totop.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", hentJSON_kontakt);
+
+        async function hentJSON_kontakt() {
+            let wpEnd = `pages/41?_fields=content`;
+
+            const response = await fetch(wp + wpEnd);
+            let json = await response.json();
+
+            console.log(json);
+
+            let text = document.createElement("div");
+            text.id = "text_list";
+            text.innerHTML = json.content.rendered;
+            document.querySelector("#fill").appendChild(text);
+
+        }
+
+    </script>
 
 </body>
 
