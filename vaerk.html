@@ -39,7 +39,7 @@
 
 		.content_wrap article:nth-of-type(2) {
 			grid-area: i2;
-			width: 50%;
+			width: 70%;
 		}
 
 		.content_wrap article:nth-of-type(3) {
@@ -48,7 +48,7 @@
 
 		.content_wrap article:nth-of-type(4) {
 			grid-area: i4;
-			width: 66%;
+			width: 70%;
 		}
 
 		.content_wrap article:nth-of-type(5) {
@@ -57,7 +57,7 @@
 
 		.content_wrap article:nth-of-type(6) {
 			grid-area: i6;
-			width: 50%;
+			width: 70%;
 		}
 
 		.content_wrap article:nth-of-type(7) {
@@ -66,7 +66,7 @@
 
 		.content_wrap article:nth-of-type(8) {
 			grid-area: i8;
-			width: 66%;
+			width: 70%;
 		}
 
 		.content_wrap article:nth-of-type(9) {
@@ -75,7 +75,7 @@
 
 		.content_wrap article:nth-of-type(10) {
 			grid-area: i10;
-			width: 50%;
+			width: 70%;
 		}
 
 		@media only screen and (min-width: 800px) {
@@ -139,7 +139,7 @@
 			}
 
 			#main {
-				padding: 30px 100px 0 100px;
+				padding: 100px 100px 0 100px;
 			}
 
 			section.layout_section {
@@ -153,6 +153,7 @@
 
 			.content_wrap {
 				display: grid;
+				grid-column-gap: 30px;
 				grid-template-columns: repeat(6, 1fr);
 				grid-template-areas:
 					"t t t i1 i1 i1"
@@ -182,12 +183,16 @@
 		.img_wrapper .scale_down {
 			transform: scale(1);
 		}
-
 	</style>
 </head>
 
 <body>
+	<header>
+		<nav>
+		</nav>
+	</header>
 	<main id="main"></main>
+	<script src="js/menu.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
@@ -198,7 +203,6 @@
 	<script>
 		document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
 
-		let wp = `http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-json/wp/v2/`;
 		let N = 0;
 		const urlParams = new URLSearchParams(window.location.search);
 		const id = urlParams.get("id");
@@ -271,6 +275,9 @@
 					console.log(N);
 
 
+					document.querySelector(".nav_link_wrap").style.background = "#" + t.bg;
+					document.querySelector(".nav_link_wrap ul").style.background = "#" + t.bg;
+					logo.style.fill = "#" + t.txt;
 					document.querySelector("#main").style.background = "#" + t.bg;
 					document.querySelectorAll("*").forEach((s) => {
 						s.style.color = "#" + t.txt;
@@ -312,8 +319,5 @@
 					.addTo(controller)
 			})
 		}
-
 	</script>
-</body>
-
-</html>
+</body></html>

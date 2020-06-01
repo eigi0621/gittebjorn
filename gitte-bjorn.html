@@ -667,7 +667,6 @@
 			}
 
 		}
-
 	</style>
 </head>
 
@@ -755,11 +754,8 @@
 		document.querySelector("#se_kontakt").addEventListener("click", () => {
 			location.href = "kontakt.html"
 		})
-
 	</script>
 	<script>
-		document.querySelector("header").style.position = "absolute";
-
 		document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
 
 		let N = 0;
@@ -774,7 +770,6 @@
 			json.forEach((t) => {
 
 				N++;
-
 
 
 				let s = document.createElement("section");
@@ -805,8 +800,6 @@
 				img.src = t.thumb[0].guid;
 				img.alt = t.thumb[0].post_excerpt;
 				content_wrap.appendChild(img);
-
-
 
 				if (N % 7 == 1 || N % 7 == 4) {
 					let img2 = document.createElement("img");
@@ -841,16 +834,10 @@
 					})
 					console.log("click");
 				})
-
-
-
-
-
 			})
 
 			setTimeout(scroller, 100);
 		}
-
 	</script>
 
 	<script>
@@ -897,19 +884,11 @@
 						triggerHook: .1
 					})
 					.setTween(tl2)
-					//.addIndicators()
 					.addTo(controller)
-
-
-
-
-
-
-
-
-
 			}
-			var ourScene2 = new ScrollMagic.Scene({
+
+
+			var splashScene = new ScrollMagic.Scene({
 					triggerElement: ".splash_col_wrap",
 					duration: "200%",
 					triggerHook: 0
@@ -920,7 +899,6 @@
 						ease: "none"
 					})
 				)
-				.addIndicators()
 				.addTo(controller)
 
 
@@ -948,6 +926,22 @@
 					.to("button", {
 						background: "#" + txt,
 						color: "#" + bg,
+						ease: "power1.inOut"
+					}, 0)
+					.to(".nav_link_wrap", {
+						background: "#" + bg,
+						ease: "power1.inOut"
+					}, 0)
+					.to(".nav_link", {
+						color: "#" + txt,
+						ease: "power1.inOut"
+					}, 0)
+					.to(".nav_link_wrap ul", {
+						background: "#" + bg,
+						ease: "power1.inOut"
+					}, 0)
+					.to(logo, {
+						fill: "#" + txt,
 						ease: "power1.inOut"
 					}, 0)
 
@@ -987,11 +981,6 @@
 				.setTween(timelineCV)
 				//.addIndicators()
 				.addTo(controller)
-
-
 		}
-
 	</script>
-</body>
-
-</html>
+</body></html>
