@@ -31,6 +31,11 @@
 
         }
 
+        #main_grid .img_txt p,
+        #main_grid .img_txt h1 {
+            color: white;
+        }
+
         .img_wrap {
             grid-column: 1/7;
             width: 100vw;
@@ -49,6 +54,8 @@
             right: 0;
             top: 30%;
         }
+
+
 
         #main_grid .txt_wrap {
             grid-column: 2/6;
@@ -77,6 +84,11 @@
         }
 
         @media only screen and (min-width: 1200px) {
+
+            #main_grid .img_txt p,
+            #main_grid .img_txt h1 {
+                color: white;
+            }
 
             .smyk_content_wrap {
                 grid-template-columns: repeat(6, 1fr);
@@ -267,7 +279,7 @@
                 let smykkekurser_btn_a = document.createElement("a");
                 smykkekurser_btn_a.href = "kurser.html";
                 let smykkekurser_btn = document.createElement("button");
-                smykkekurser_btn.innerHTML = "Se vores kurser ->";
+                smykkekurser_btn.innerHTML = "Se vores kurser";
                 smykkekurser_txt.appendChild(smykkekurser_btn_a);
                 smykkekurser_btn_a.appendChild(smykkekurser_btn);
                 smykkekurser_txt.insertBefore(smykkekurser_btn_a, smykkekurser_txt.childNodes[4]);
