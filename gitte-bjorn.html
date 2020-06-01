@@ -350,6 +350,7 @@
 
 			section.layout_section:nth-child(7n+1) .content_wrap img:nth-of-type(2) {
 				grid-area: i2;
+				width: 100%;
 			}
 
 
@@ -418,6 +419,7 @@
 
 			section.layout_section:nth-child(7n+4) .content_wrap img:nth-of-type(2) {
 				grid-area: i2;
+				width: 100%;
 			}
 
 
@@ -729,8 +731,6 @@
 	<script src="js/smoothScroll.js"></script>
 	<script src="js/totop.js"></script>
 	<script>
-		document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser_splash);
-
 		async function hentJSON_smykkekurser_splash() {
 			let wpEnd = `pages/29?_fields=content`;
 			const response = await fetch(wp + wpEnd);
@@ -768,6 +768,8 @@
 			let wpEnd = `vaerk?_fields=title,aarstal,beskrivelse,thumb,bg,txt&per_page=10`;
 			const response = await fetch(wp + wpEnd);
 			let json = await response.json();
+
+			hentJSON_smykkekurser_splash();
 
 			json.forEach((t) => {
 
