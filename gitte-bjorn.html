@@ -22,6 +22,7 @@
 			left: -30px;
 			display: flex;
 			flex-wrap: wrap-reverse;
+			overflow: hidden;
 		}
 
 		.splash_col {
@@ -906,6 +907,20 @@
 
 
 			}
+			var ourScene2 = new ScrollMagic.Scene({
+					triggerElement: ".splash_col_wrap",
+					duration: "200%",
+					triggerHook: 0
+				})
+				.setTween(
+					gsap.to(".splash_col", {
+						y: "100%",
+						ease: "none"
+					})
+				)
+				.addIndicators()
+				.addTo(controller)
+
 
 
 			document.querySelector("#main").style.background = "rgba(255, 255, 255, 1)";
