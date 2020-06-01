@@ -667,6 +667,7 @@
 			}
 
 		}
+
 	</style>
 </head>
 
@@ -754,6 +755,7 @@
 		document.querySelector("#se_kontakt").addEventListener("click", () => {
 			location.href = "kontakt.html"
 		})
+
 	</script>
 	<script>
 		document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
@@ -838,6 +840,7 @@
 
 			setTimeout(scroller, 100);
 		}
+
 	</script>
 
 	<script>
@@ -932,6 +935,10 @@
 						background: "#" + bg,
 						ease: "power1.inOut"
 					}, 0)
+					.to("nav", {
+						background: "#" + bg,
+						ease: "power1.inOut"
+					}, 0)
 					.to(".nav_link", {
 						color: "#" + txt,
 						ease: "power1.inOut"
@@ -941,6 +948,18 @@
 						ease: "power1.inOut"
 					}, 0)
 					.to(logo, {
+						fill: "#" + txt,
+						ease: "power1.inOut"
+					}, 0)
+					.to(burger1, {
+						fill: "#" + txt,
+						ease: "power1.inOut"
+					}, 0)
+					.to(burger2, {
+						fill: "#" + txt,
+						ease: "power1.inOut"
+					}, 0)
+					.to(burger3, {
 						fill: "#" + txt,
 						ease: "power1.inOut"
 					}, 0)
@@ -982,5 +1001,8 @@
 				//.addIndicators()
 				.addTo(controller)
 		}
+
 	</script>
-</body></html>
+</body>
+
+</html>
