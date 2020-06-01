@@ -1,24 +1,24 @@
 let wp = `http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-json/wp/v2/`;
 
 document.addEventListener("DOMContentLoaded", () => {
-  hentJSON();
+	hentJSON();
 });
 
 async function hentJSON() {
-  let wpEnd = `pages?_fields=title,parent,slug`;
-  const response = await fetch(wp + wpEnd);
-  let json = await response.json();
+	let wpEnd = `pages?_fields=title,parent,slug`;
+	const response = await fetch(wp + wpEnd);
+	let json = await response.json();
 
-  json.forEach((t) => {
-    if (t.parent != 0) {
-      let li = document.createElement("li");
-      let a = document.createElement("a");
-      a.textContent = t.title.rendered;
-      a.href = `${t.slug}.html`;
-      li.appendChild(a);
-      ul.appendChild(li);
-    }
-  })
+	json.forEach((t) => {
+		if (t.parent != 0) {
+			let li = document.createElement("li");
+			let a = document.createElement("a");
+			a.textContent = t.title.rendered;
+			a.href = `${t.slug}.html`;
+			li.appendChild(a);
+			ul.appendChild(li);
+		}
+	})
 }
 
 var nav = document.querySelector("nav");
@@ -68,8 +68,8 @@ smykkekurser.appendChild(ul);
 
 
 burger_wrap.addEventListener("click", () => {
-  nav_link_wrap.classList.toggle("burger_show");
-  burger1.classList.toggle("burger1");
-  burger2.classList.toggle("burger2");
-  burger3.classList.toggle("burger3");
+	nav_link_wrap.classList.toggle("burger_show");
+	burger1.classList.toggle("burger1");
+	burger2.classList.toggle("burger2");
+	burger3.classList.toggle("burger3");
 })

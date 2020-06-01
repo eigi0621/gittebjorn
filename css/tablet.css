@@ -93,7 +93,7 @@
   .nav_link:hover ul {
     opacity: 1;
     transform: translateY(15px);
-    height: 180px;
+    height: 144px;
   }
 
   nav li:first-child {
