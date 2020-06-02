@@ -22,17 +22,12 @@
     #main_grid {
       display: grid;
       grid-gap: 30px;
-
-
       height: 100vh;
-
       grid-template-columns: repeat(1, 1fr);
-
     }
 
     .img_wrap {
       overflow: hidden;
-
     }
 
     .txt_wrap {
@@ -94,9 +89,6 @@
         grid-gap: 30px;
       }
 
-
-
-
       .smyk_layout_section:nth-child(2n+1) .smyk_besk_wrap {
         grid-column: 5/7;
         display: flex;
@@ -119,7 +111,6 @@
       .smyk_layout_section:nth-child(2n) img {
         grid-column: 4/7;
       }
-
   </style>
 </head>
 
@@ -129,11 +120,7 @@
     </nav>
   </header>
   <main id="main">
-    <main id="main_grid">
-
-
-
-    </main>
+    <main id="main_grid"></main>
     <div id="fill"></div>
   </main>
   <footer id="footer">
@@ -158,6 +145,12 @@
     </div>
   </footer>
   <script src="js/menu.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
+  <script src="js/smoothScroll.js"></script>
+  <script src="js/totop.js"></script>
   <script>
     let jsonIntro = [];
     document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
@@ -166,45 +159,27 @@
       let wpEnd = `kurser?_fields=title,h4,p,cta,img,tilmelding_link`;
       const response = await fetch(wp + wpEnd);
       let json = await response.json();
-      console.log(json);
-
 
       let wpEndIntro = `pages?slug=kurser&_embed`;
       const responseIntro = await fetch(wp + wpEndIntro);
       let jsonIntro = await responseIntro.json();
-      console.log(jsonIntro);
 
       jsonIntro.forEach((q) => {
-
         let smykkekurser_img_wrap = document.createElement("div");
         smykkekurser_img_wrap.classList.add("img_wrap");
-
         let kurserTitel = document.createElement("h1")
         kurserTitel.innerHTML = q.title.rendered;
-
         let smykkekurser_txt = document.createElement("div");
         smykkekurser_txt.classList.add("txt_wrap");
         smykkekurser_txt.innerHTML = `${q.content.rendered}`;
         smykkekurser_txt.appendChild(kurserTitel);
         smykkekurser_txt.insertBefore(kurserTitel, smykkekurser_txt.childNodes[1]);
-
         let smykkekurser_img = document.createElement("img");
-        smykkekurser_img.src = `${
-                    q._embedded['wp:featuredmedia'][0].source_url
-                }`;
-
+        let fimg = q._embedded['wp:featuredmedia'][0].source_url;
+        smykkekurser_img.src = fimg;
         smykkekurser_img_wrap.appendChild(smykkekurser_img);
         document.querySelector("#main_grid").appendChild(smykkekurser_txt);
-
         document.querySelector("#main_grid").appendChild(smykkekurser_img_wrap);
-
-
-
-
-
-
-
-
       });
 
       json.forEach((t) => {
@@ -216,34 +191,20 @@
         h4.textContent = t.title.rendered;
         let besk_wrap = document.createElement("div");
         besk_wrap.classList.add("smyk_besk_wrap");
-        //let h4 = document.createElement("h4");
-        // h4.textContent = t.h4;
         let p = document.createElement("p");
         p.textContent = t.p;
-
         let cta_a = document.createElement("a");
         cta_a.href = "kurser.html";
         let cta = document.createElement("button");
         cta.textContent = t.cta;
-        //besk_wrap.appendChild(h4);
         besk_wrap.appendChild(h4);
-
         besk_wrap.appendChild(p);
-
         if (t.cta) {
           besk_wrap.appendChild(cta_a);
           cta_a.appendChild(cta);
           cta_a.href = t.tilmelding_link;
         }
         content_wrap.appendChild(besk_wrap);
-        //                if (t.img) {
-        //                    t.img.forEach((u) => {
-        //                        let img = document.createElement("img");
-        //                        img.src = u.guid;
-        //                        img.alt = u.post_excerpt;
-        //                        content_wrap.appendChild(img);
-        //                    })
-        //                }
         let img = document.createElement("img");
         img.src = t.img.guid;
         img.alt = t.img.post_excerpt;
@@ -252,9 +213,5 @@
         document.querySelector("#fill").appendChild(s);
       })
     }
-
   </script>
-  <script src="js/smoothScroll.js"></script>
-</body>
-
-</html>
+</body></html>

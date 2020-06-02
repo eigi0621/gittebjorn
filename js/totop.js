@@ -11,17 +11,18 @@ toTop.addEventListener("click", () => {
 })
 
 
-window.addEventListener("resize", fullWidth);
-window.addEventListener("DOMContentLoaded", fullWidth);
+var controller = new ScrollMagic.Controller();
 
-function fullWidth() {
-  document.querySelectorAll(".full_width").forEach((img) => {
-    img.style.width = "100vw";
-    img.style.position = "relative";
-    if (window.innerWidth > 600) {
-      img.style.left = `-50px`;
-    } else {
-      img.style.left = `-20px`;
-    }
+
+var toTopScene = new ScrollMagic.Scene({
+    triggerElement: "#main",
+    duration: "100%",
+    triggerHook: 0
   })
-}
+  .setTween(
+    gsap.from(toTop, {
+      y: "200%",
+      ease: "none"
+    })
+  )
+  .addTo(controller)

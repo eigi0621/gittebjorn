@@ -93,7 +93,7 @@
 
   .nav_link:hover ul {
     opacity: 1;
-    transform: translateY(15px);
+    transform: translateY(13px);
     height: 144px;
   }
 

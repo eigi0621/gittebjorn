@@ -79,6 +79,7 @@
       position: relative;
       z-index: 3;
       transition: .7s cubic-bezier(0.25, 1, 0.5, 1);
+      mix-blend-mode: lighten;
     }
 
     #content_list li p:hover {
@@ -656,7 +657,6 @@
       }
 
     }
-
   </style>
 </head>
 
@@ -724,8 +724,6 @@
       const response = await fetch(wp + wpEnd);
       let json = await response.json();
 
-      console.log(json);
-
       let cv = document.createElement("div");
       cv.id = "cv_list";
       cv.innerHTML = json.content.rendered;
@@ -738,20 +736,13 @@
           ease: "power3.inOut"
         })
       })
-
-
       setTimeout(scroller, 100);
-
     }
-
-
 
     document.querySelector("#se_kontakt").addEventListener("click", () => {
       location.href = "kontakt.html"
     })
 
-  </script>
-  <script>
     document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
 
     let N = 0;
@@ -764,9 +755,7 @@
       hentJSON_smykkekurser_splash();
 
       json.forEach((t) => {
-
         N++;
-
 
         let s = document.createElement("section");
         s.classList.add("layout_section");
@@ -807,8 +796,6 @@
         s.appendChild(content_wrap);
         document.querySelector("#fill").appendChild(s);
 
-        console.log(N);
-
         let li = document.createElement("li");
         li.dataset.number = N;
         let p = document.createElement("p");
@@ -825,19 +812,13 @@
             scrollTo: targetSection,
             ease: "power3.inOut"
           })
-          console.log("click");
         })
       })
     }
-
   </script>
 
   <script>
-    var controller = new ScrollMagic.Controller();
-
-
     function scroller() {
-
       if (window.innerWidth > 1200) {
         var scrollHeight = document.querySelector("#fill").clientHeight - window.innerHeight;
 
@@ -848,7 +829,6 @@
           ease: "none"
         })
 
-
         var ourScene = new ScrollMagic.Scene({
             triggerElement: "#content_list_wrap",
             duration: scrollHeight,
@@ -858,17 +838,10 @@
           //.addIndicators()
           .addTo(controller)
 
-
         var tl2 = gsap.timeline()
 
         var listHeight = document.querySelector("#content_list").clientHeight;
         var listLenght = document.querySelectorAll(".layout_section").lenght;
-
-        /*tl2.to("#list_overlay", {
-y: listHeight - 32,
-ease: "none"
-})*/
-
 
         var sScene = new ScrollMagic.Scene({
             triggerElement: "#content_list_wrap",
@@ -878,7 +851,6 @@ ease: "none"
           .setTween(tl2)
           .addTo(controller)
       }
-
 
       var splashScene = new ScrollMagic.Scene({
           triggerElement: ".splash_col_wrap",
@@ -893,14 +865,11 @@ ease: "none"
         )
         .addTo(controller)
 
-
-
       document.querySelector("#main").style.background = "rgba(255, 255, 255, 1)";
 
       document.querySelectorAll(".layout_section").forEach((s) => {
         var bg = s.dataset.bg;
         var txt = s.dataset.txt;
-
         var timeline = gsap.timeline()
 
         timeline.to("#main", {
@@ -948,17 +917,13 @@ ease: "none"
             fill: "#" + txt,
             ease: "power1.inOut"
           }, 0)
-        /*.to("#content_list li p", {
-background: "#" + bg,
-ease: "power1.inOut"
-}, 0)*/
 
         document.querySelectorAll("#content_list li").forEach((l) => {
           let p = l.querySelector("p");
           if (s.dataset.secnr == l.dataset.number) {
             timeline.to(p, {
-              backgroundColor: "rgba(255, 255, 255, .4)",
-              fontWeight: "800"
+              backgroundColor: "rgba(255, 255, 255, 1)",
+              fontWeight: "300"
             }, 0)
           } else {
             timeline.to(p, {
@@ -968,17 +933,17 @@ ease: "power1.inOut"
           }
         })
 
-
-
         var scene = new ScrollMagic.Scene({
             triggerElement: s,
             duration: "25%",
             triggerHook: .7
           })
           .setTween(timeline)
-          //.addIndicators()
           .addTo(controller)
       })
+
+
+
 
       var timelineCV = gsap.timeline()
 
@@ -1003,11 +968,7 @@ ease: "power1.inOut"
           triggerHook: .7
         })
         .setTween(timelineCV)
-        //.addIndicators()
         .addTo(controller)
     }
-
   </script>
-</body>
-
-</html>
+</body></html>
