@@ -36,15 +36,10 @@ var nav = document.querySelector("nav");
 var gitteBjorn = document.createElement("a");
 gitteBjorn.textContent = "gitte bjørn";
 gitteBjorn.href = "gitte-bjorn.html"
-gitteBjorn.classList.add("nav_link");
+gitteBjorn.classList.add("nav_link", "no_highlights");
 var smykkekurser = document.createElement("a");
 smykkekurser.textContent = "smykkekurser";
-smykkekurser.href = "smykkekurser.html"
-smykkekurser.classList.add("nav_link");
-/*var logo = document.createElement("img");
-logo.src = "img/gb_logo_svg.svg";
-logo.id = "logo";
-logo.alt = "Gitte Bjørn logo";*/
+smykkekurser.classList.add("nav_link", "no_highlights");
 var logo = document.createElement("div");
 logo.id = "anim";
 logo.innerHTML = logo_svg;
@@ -62,21 +57,6 @@ burger2_wrap.innerHTML = burger2_svg;
 let burger3_wrap = document.createElement("div");
 burger3_wrap.id = "burger3_wrap";
 burger3_wrap.innerHTML = burger3_svg;
-/*var burger1 = document.createElement("img");
-burger1.src = "img/burger1.svg";
-burger1.id = "burger1";
-burger1.alt = "top of burger icon";
-var burger2 = document.createElement("img");
-burger2.src = "img/burger2.svg";
-burger2.id = "burger2";
-burger2.alt = "middle of burger icon";
-var burger3 = document.createElement("img");
-burger3.src = "img/burger3.svg";
-burger3.id = "burger3";
-burger3.alt = "bottom of burger icon";*/
-/*burger_wrap.appendChild(burger1);
-burger_wrap.appendChild(burger2);
-burger_wrap.appendChild(burger3);*/
 burger_wrap.appendChild(burger1_wrap);
 burger_wrap.appendChild(burger2_wrap);
 burger_wrap.appendChild(burger3_wrap);
