@@ -172,34 +172,39 @@ nav {
   align-items: center;
 }
 
-#burger1 {
+#burger1_wrap {
+  height: 8px;
   width: 37px;
   padding: 1px 10px;
-  transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-#burger2 {
+#burger2_wrap {
+  height: 5px;
   width: 43px;
   padding: 0 10px;
-  transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-#burger3 {
+#burger3_wrap {
+  height: 5px;
   width: 35px;
   padding: 1px 10px;
-  transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.burger_wrap svg {
+  position: relative;
+  top: -11px;
 }
 
 .burger1 {
-  transform: translate(0px, 4px) rotate(-135deg);
+  transform: translate(0px, 5px) rotate(-135deg);
 }
 
 .burger2 {
-  transform: rotate(135deg);
+  transform: translate(0px, -1px) rotate(135deg);
 }
 
 .burger3 {
-  transform: translate(0px, -6px) rotate(-135deg);
+  transform: translate(0px, -8px) rotate(-135deg);
   opacity: 0;
 }
 

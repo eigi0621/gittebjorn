@@ -15,6 +15,51 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
   <link rel="manifest" href="img/favicon/site.webmanifest">
   <style>
+    .scroll_pos {
+      width: 100vw;
+      height: calc(100vh - 100px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    .scroll_wrap {
+      width: 100%;
+      height: 80px;
+      visibility: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    .scroll1 {
+      visibility: visible;
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background-color: #fff;
+    }
+
+    .scroll2 {
+      visibility: visible;
+      position: absolute;
+      width: 2px;
+      height: 10px;
+      background-color: #fff;
+    }
+
+    .scroll3 {
+      visibility: visible;
+      position: absolute;
+      width: 2px;
+      height: 10px;
+      background-color: #fff;
+    }
+
     .splash_col_wrap {
       width: 100vw;
       position: relative;
@@ -79,7 +124,6 @@
       position: relative;
       z-index: 3;
       transition: .7s cubic-bezier(0.25, 1, 0.5, 1);
-      mix-blend-mode: lighten;
     }
 
     #content_list li p:hover {
@@ -111,7 +155,7 @@
       font-size: .9rem;
     }
 
-    #se_cv {
+    #se_kontakt {
       background: #64665D;
     }
 
@@ -288,10 +332,19 @@
 
     @media only screen and (min-width: 600px) {
 
+      .scroll1,
+      .scroll2,
+      .scroll3 {
+        background-color: #544270;
+      }
+
+      .scroll_wrap {
+        width: 50%;
+      }
+
       #cv_list p {
         font-size: 1rem;
       }
-
 
       #content_list li:last-child p {
         margin-bottom: 100px;
@@ -655,7 +708,78 @@
       section.layout_section:nth-child(7n+7) .content_wrap img {
         grid-area: i;
       }
+    }
 
+    .scroll1_ani {
+      animation: scroll1_ani-kf 1s infinite alternate both;
+    }
+
+    @keyframes scroll1_ani-kf {
+      100% {
+        transform: translateX(4px) translateY(35px);
+        height: 20px;
+        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+      }
+
+      50% {
+        transform: translateX(4px) translateY(40px);
+        height: 30px;
+        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      0% {
+        transform: translateX(4px) translateY(55px);
+        height: 20px;
+        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+      }
+    }
+
+    .scroll2_ani {
+      animation: scroll2_ani-kf 1s cubic-bezier(.3, 0, .2, 1) infinite alternate both;
+    }
+
+    @keyframes scroll2_ani-kf {
+      100% {
+        transform: translateX(7px) translateY(47px) rotate(45deg);
+        height: 10px;
+        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+      }
+
+      50% {
+        transform: translateX(7px) translateY(62px) rotate(45deg);
+        height: 10px;
+        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      0% {
+        transform: translateX(7px) translateY(67px) rotate(45deg);
+        height: 10px;
+        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+      }
+    }
+
+    .scroll3_ani {
+      animation: scroll3_ani-kf 1s cubic-bezier(.3, 0, .2, 1) infinite alternate both;
+    }
+
+    @keyframes scroll3_ani-kf {
+      100% {
+        transform: translateX(1px) translateY(47px) rotate(-45deg);
+        height: 10px;
+        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+      }
+
+      50% {
+        transform: translateX(1px) translateY(62px) rotate(-45deg);
+        height: 10px;
+        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      0% {
+        transform: translateX(1px) translateY(67px) rotate(-45deg);
+        height: 10px;
+        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+      }
     }
   </style>
 </head>
@@ -675,10 +799,18 @@
         <p>Mit kreative arbejde er tæt forbundet med kroppen. Da jeg startede i 1993 fyldte smykkerne mest i mit univers. I dag lægger jeg langt det meste af min energi i at skabe objekter og korpusarbejder.
           Fælles for mine værker på tværs af genrer, teknikker og temaer er kærligheden til at forme i metal.
           Jeg arbejder fokuseret mod en soloudstilling med et fast tema, der også styrer prioriteringen af min arbejdsindsats.</p>
+        <button id="se_va">Gitte Bjørns værker</button>
+        <button id="se_cv">Gitte Bjørns CV</button>
         <a href="kontakt.html">
           <button id="se_kontakt">Kontakt</button>
         </a>
-        <button id="se_cv">Se Gitte Bjørns CV</button>
+      </div>
+      <div class="scroll_pos">
+        <div class="scroll_wrap">
+          <div class="scroll1 scroll1_ani"></div>
+          <div class="scroll2 scroll2_ani"></div>
+          <div class="scroll3 scroll3_ani"></div>
+        </div>
       </div>
     </div>
     <div id="fill_wrap">
@@ -733,6 +865,13 @@
         gsap.to(window, {
           duration: 1,
           scrollTo: ".cv_group",
+          ease: "power3.inOut"
+        })
+      })
+      document.querySelector("#se_va").addEventListener("click", () => {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: ".layout_section:first-of-type",
           ease: "power3.inOut"
         })
       })
@@ -835,7 +974,6 @@
             triggerHook: .1
           })
           .setTween(tl)
-          //.addIndicators()
           .addTo(controller)
 
         var tl2 = gsap.timeline()
@@ -897,6 +1035,10 @@
             color: "#" + txt,
             ease: "power1.inOut"
           }, 0)
+          .to(".nav_link a", {
+            color: "#" + txt,
+            ease: "power1.inOut"
+          }, 0)
           .to(".nav_link_wrap ul", {
             background: "#" + bg,
             ease: "power1.inOut"
@@ -905,15 +1047,15 @@
             fill: "#" + txt,
             ease: "power1.inOut"
           }, 0)
-          .to(burger1, {
+          .to(burger1_wrap, {
             fill: "#" + txt,
             ease: "power1.inOut"
           }, 0)
-          .to(burger2, {
+          .to(burger2_wrap, {
             fill: "#" + txt,
             ease: "power1.inOut"
           }, 0)
-          .to(burger3, {
+          .to(burger3_wrap, {
             fill: "#" + txt,
             ease: "power1.inOut"
           }, 0)
@@ -958,6 +1100,42 @@
         .to("button", {
           background: "#000",
           color: "#fff",
+          ease: "power1.inOut"
+        }, 0)
+        .to(".nav_link_wrap", {
+          background: "#fff",
+          ease: "power1.inOut"
+        }, 0)
+        .to("nav", {
+          background: "#fff",
+          ease: "power1.inOut"
+        }, 0)
+        .to(".nav_link", {
+          color: "#000",
+          ease: "power1.inOut"
+        }, 0)
+        .to(".nav_link a", {
+          color: "#000",
+          ease: "power1.inOut"
+        }, 0)
+        .to(".nav_link_wrap ul", {
+          background: "#fff",
+          ease: "power1.inOut"
+        }, 0)
+        .to(logo, {
+          fill: "#000",
+          ease: "power1.inOut"
+        }, 0)
+        .to(burger1_wrap, {
+          fill: "#000",
+          ease: "power1.inOut"
+        }, 0)
+        .to(burger2_wrap, {
+          fill: "#000",
+          ease: "power1.inOut"
+        }, 0)
+        .to(burger3_wrap, {
+          fill: "#000",
           ease: "power1.inOut"
         }, 0)
 
