@@ -13,7 +13,8 @@ async function hentJSON_menu() {
   //lav linket om til læsbar json
   let json = await response.json();
 
-  //for hver t (titel), hvis ingen page parent, lav et li tag med et a tag og sæt det ind i ul tagget i nav
+  //for hver t (titel), hvis ingen page parent,
+  //lav et li tag med et a tag og sæt det ind i ul tagget i nav
   json.forEach((t) => {
     if (t.parent != 0) {
       let li = document.createElement("li");
