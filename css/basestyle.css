@@ -368,24 +368,6 @@ section.layout_section:first-child {
 }
 
 
-/*=======================================================*/
-/*SCROLLMAGIC TEST*/
-/*=======================================================*/
-/*#footer {
-  height: 100vh;
-}
-
-.content_wrap {
-  transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
-  opacity: 0;
-  transform: translateY(100px);
-}
-
-.fade_in {
-  opacity: 1;
-  transform: translateY(0);
-}*/
-
 
 /*=======================================================*/
 /*TO TOP*/
@@ -396,4 +378,126 @@ section.layout_section:first-child {
   bottom: 20px;
   margin: 0;
   z-index: 999;
+}
+
+
+/*=======================================================*/
+/*SCROLLARROW*/
+/*=======================================================*/
+.scroll_pos {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 4;
+  visibility: hidden;
+}
+
+.scroll_wrap {
+  width: 50%;
+  height: 40px;
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scroll1 {
+  visibility: visible;
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: #544270;
+}
+
+.scroll2 {
+  visibility: visible;
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background-color: #544270;
+}
+
+.scroll3 {
+  visibility: visible;
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background-color: #544270;
+}
+
+.scroll1_ani {
+  animation: scroll1_ani-kf 1s infinite alternate both;
+}
+
+@keyframes scroll1_ani-kf {
+  100% {
+    transform: translateX(0) translateY(0px);
+    height: 20px;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+  }
+
+  50% {
+    transform: translateX(0) translateY(5px);
+    height: 30px;
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  0% {
+    transform: translateX(0) translateY(20px);
+    height: 20px;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+  }
+}
+
+.scroll2_ani {
+  animation: scroll2_ani-kf 1s cubic-bezier(.3, 0, .2, 1) infinite alternate both;
+}
+
+@keyframes scroll2_ani-kf {
+  100% {
+    transform: translateX(3px) translateY(12px) rotate(45deg);
+    height: 10px;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+  }
+
+  50% {
+    transform: translateX(3px) translateY(27px) rotate(45deg);
+    height: 10px;
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  0% {
+    transform: translateX(3px) translateY(32px) rotate(45deg);
+    height: 10px;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+  }
+}
+
+.scroll3_ani {
+  animation: scroll3_ani-kf 1s cubic-bezier(.3, 0, .2, 1) infinite alternate both;
+}
+
+@keyframes scroll3_ani-kf {
+  100% {
+    transform: translateX(-3px) translateY(12px) rotate(-45deg);
+    height: 10px;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+  }
+
+  50% {
+    transform: translateX(-3px) translateY(27px) rotate(-45deg);
+    height: 10px;
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  0% {
+    transform: translateX(-3px) translateY(32px) rotate(-45deg);
+    height: 10px;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+  }
 }
