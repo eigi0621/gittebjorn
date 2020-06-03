@@ -15,6 +15,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
   <link rel="manifest" href="img/favicon/site.webmanifest">
   <style>
+    .scroll_pos {
+      justify-content: flex-start;
+    }
+
     #splash_col2 {
       overflow: hidden;
       height: 400px;
@@ -84,7 +88,7 @@
       margin-bottom: 40px;
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 800px) {
       .main_grid {
         display: grid;
         grid-template-columns: repeat(2, 2fr);
@@ -187,6 +191,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
   <script src="js/smoothScroll.js"></script>
   <script src="js/totop.js"></script>
+  <script src="js/scrollarrow.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", hentJSON_blog);
 

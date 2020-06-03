@@ -16,48 +16,7 @@
   <link rel="manifest" href="img/favicon/site.webmanifest">
   <style>
     .scroll_pos {
-      width: 100vw;
-      height: calc(100vh - 100px);
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
       justify-content: flex-end;
-      align-items: flex-end;
-      z-index: 4;
-      visibility: hidden;
-    }
-
-    .scroll_wrap {
-      width: 100%;
-      height: 80px;
-      visibility: hidden;
-      display: flex;
-      justify-content: center;
-    }
-
-    .scroll1 {
-      visibility: visible;
-      position: absolute;
-      width: 2px;
-      height: 20px;
-      background-color: #fff;
-    }
-
-    .scroll2 {
-      visibility: visible;
-      position: absolute;
-      width: 2px;
-      height: 10px;
-      background-color: #fff;
-    }
-
-    .scroll3 {
-      visibility: visible;
-      position: absolute;
-      width: 2px;
-      height: 10px;
-      background-color: #fff;
     }
 
     .splash_col_wrap {
@@ -72,7 +31,7 @@
 
     .splash_col {
       flex-grow: 1;
-      flex-basis: 300px;
+      flex-basis: 400px;
     }
 
     figure.splash_col {
@@ -330,17 +289,7 @@
       grid-area: i;
     }
 
-    @media only screen and (min-width: 600px) {
-
-      .scroll1,
-      .scroll2,
-      .scroll3 {
-        background-color: #544270;
-      }
-
-      .scroll_wrap {
-        width: 50%;
-      }
+    @media only screen and (min-width: 800px) {
 
       #cv_list p {
         font-size: 1rem;
@@ -352,7 +301,7 @@
 
       .splash_col_wrap {
         top: -100px;
-        left: -100px;
+        left: -30px;
       }
 
       #fill_wrap {
@@ -532,7 +481,10 @@
         font-size: 1.1rem;
       }
 
-      .splash_col_wrap {}
+      .splash_col_wrap {
+        top: -100px;
+        left: -100px;
+      }
 
       #fill_wrap {
         display: grid;
@@ -709,78 +661,6 @@
         grid-area: i;
       }
     }
-
-    .scroll1_ani {
-      animation: scroll1_ani-kf 1s infinite alternate both;
-    }
-
-    @keyframes scroll1_ani-kf {
-      100% {
-        transform: translateX(4px) translateY(35px);
-        height: 20px;
-        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
-      }
-
-      50% {
-        transform: translateX(4px) translateY(40px);
-        height: 30px;
-        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-      }
-
-      0% {
-        transform: translateX(4px) translateY(55px);
-        height: 20px;
-        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
-      }
-    }
-
-    .scroll2_ani {
-      animation: scroll2_ani-kf 1s cubic-bezier(.3, 0, .2, 1) infinite alternate both;
-    }
-
-    @keyframes scroll2_ani-kf {
-      100% {
-        transform: translateX(7px) translateY(47px) rotate(45deg);
-        height: 10px;
-        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
-      }
-
-      50% {
-        transform: translateX(7px) translateY(62px) rotate(45deg);
-        height: 10px;
-        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-      }
-
-      0% {
-        transform: translateX(7px) translateY(67px) rotate(45deg);
-        height: 10px;
-        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
-      }
-    }
-
-    .scroll3_ani {
-      animation: scroll3_ani-kf 1s cubic-bezier(.3, 0, .2, 1) infinite alternate both;
-    }
-
-    @keyframes scroll3_ani-kf {
-      100% {
-        transform: translateX(1px) translateY(47px) rotate(-45deg);
-        height: 10px;
-        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
-      }
-
-      50% {
-        transform: translateX(1px) translateY(62px) rotate(-45deg);
-        height: 10px;
-        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-      }
-
-      0% {
-        transform: translateX(1px) translateY(67px) rotate(-45deg);
-        height: 10px;
-        animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
-      }
-    }
   </style>
 </head>
 
@@ -804,13 +684,6 @@
         <a href="kontakt.html">
           <button id="se_kontakt">Kontakt</button>
         </a>
-      </div>
-      <div class="scroll_pos">
-        <div class="scroll_wrap">
-          <div class="scroll1 scroll1_ani"></div>
-          <div class="scroll2 scroll2_ani"></div>
-          <div class="scroll3 scroll3_ani"></div>
-        </div>
       </div>
     </div>
     <div id="fill_wrap">
@@ -850,6 +723,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
   <script src="js/smoothScroll.js"></script>
   <script src="js/totop.js"></script>
+  <script src="js/scrollarrow.js"></script>
   <script>
     async function hentJSON_smykkekurser_splash() {
       let wpEnd = `pages/29?_fields=content`;
