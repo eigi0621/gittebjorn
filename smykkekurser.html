@@ -15,6 +15,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
   <link rel="manifest" href="img/favicon/site.webmanifest">
   <style>
+    .scroll1,
+    .scroll2,
+    .scroll3 {
+      background-color: #fff;
+    }
+
     img {
       width: 100%;
     }
@@ -249,6 +255,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
   <script src="js/smoothScroll.js"></script>
   <script src="js/totop.js"></script>
+  <script src="js/scrollarrow.js"></script>
   <script>
     let jsonIntro = [];
     document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
@@ -286,20 +293,20 @@
         img_txt.appendChild(document.querySelector(".txt_wrap h4"));
         img_txt.appendChild(document.querySelector(".txt_wrap h1"));
         smykkekurser_img_wrap.appendChild(img_txt);
-        document.querySelector("video").preload = "metadata";
-        let videoSrc = document.querySelector("video").src;
-        console.log(videoSrc);
-        document.querySelector("video").src = videoSrc;
 
         startVideo();
       });
 
       function startVideo() {
         let vid = document.querySelector("video");
+        vid.preload = "metadata";
+        vid.src = vid.src + "#t=4";
         vid.muted = true;
-        vid.play();
         vid.loop = true;
+        vid.autoplay = false;
+        vid.play();
       }
+
       json.forEach((t) => {
         let s = document.createElement("section");
         s.classList.add("smyk_layout_section");
@@ -340,55 +347,22 @@
         s.appendChild(content_wrap);
         document.querySelector("#fill").appendChild(s);
       })
-
-      scroller();
       videoCenter();
-    }
-
-    function scroller() {
-      var controller = new ScrollMagic.Controller();
-
-      document.querySelectorAll(".layout_section").forEach((s) => {
-        var ourScene = new ScrollMagic.Scene({
-            triggerElement: s,
-            triggerHook: 1
-          })
-          .setClassToggle(s.querySelector(".content_wrap"), "fade_in")
-          //.addIndicators()
-          .addTo(controller);
-      })
     }
 
     function videoCenter() {
       let video = document.querySelector("video");
-      let width = video.clientWidth;
-      console.log(width + " " + window.innerWidth)
+      let width;
 
       window.addEventListener("resize", () => {
-        video = document.querySelector("video");
         width = video.clientWidth;
         video.style.transform = `translateX(-${(width - window.innerWidth) / 2}px)`;
-        console.log(width + " " + window.innerWidth)
       })
 
-      video.style.transform = `translateX(-${(width - window.innerWidth) / 2}px)`;
-      console.log(width + " " + window.innerWidth)
-      setTimeout(function() {
+      video.addEventListener("loadedmetadata", function() {
+        width = video.clientWidth;
         video.style.transform = `translateX(-${(width - window.innerWidth) / 2}px)`;
-        console.log(width + " " + window.innerWidth)
-        setTimeout(function() {
-          video.style.transform = `translateX(-${(width - window.innerWidth) / 2}px)`;
-          console.log(width + " " + window.innerWidth)
-          setTimeout(function() {
-            video.style.transform = `translateX(-${(width - window.innerWidth) / 2}px)`;
-            console.log(width + " " + window.innerWidth)
-            setTimeout(function() {
-              video.style.transform = `translateX(-${(width - window.innerWidth) / 2}px)`;
-              console.log(width + " " + window.innerWidth)
-            }, 500)
-          }, 500)
-        }, 500)
-      }, 500)
+      }, false)
     }
 
   </script>

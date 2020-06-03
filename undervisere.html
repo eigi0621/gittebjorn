@@ -15,6 +15,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
   <link rel="manifest" href="img/favicon/site.webmanifest">
   <style>
+
     img {
       width: 100%;
     }
@@ -50,6 +51,10 @@
 
 
     @media only screen and (min-width: 800px) {
+    .scroll_pos {
+      justify-content: flex-start;
+    }
+
       #main_grid {
         top: -100px;
         left: -100px;
@@ -151,6 +156,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
   <script src="js/smoothScroll.js"></script>
   <script src="js/totop.js"></script>
+  <script src="js/scrollarrow.js"></script>
   <script>
     let jsonIntro = [];
     document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
