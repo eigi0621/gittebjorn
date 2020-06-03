@@ -73,6 +73,21 @@
     user-select: none;
   }
 
+  .nav_link:last-child:after {
+    content: url("../img/drop_down.svg");
+    width: 15px;
+    height: 7px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    transform: translate(120px, -15px);
+    transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .nav_link:hover:last-child:after {
+    opacity: 0;
+  }
+
   .nav_link:first-child {
     margin-top: 0px;
   }
@@ -136,5 +151,3 @@
   .splash_col_wrap {
     height: 100vh;
   }
-
-
