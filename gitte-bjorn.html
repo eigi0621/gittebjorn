@@ -829,9 +829,7 @@
         })
       })
     }
-  </script>
 
-  <script>
     function scroller() {
       if (window.innerWidth > 1200) {
         var scrollHeight = document.querySelector("#fill").clientHeight - window.innerHeight;
@@ -849,19 +847,6 @@
             triggerHook: .1
           })
           .setTween(tl)
-          .addTo(controller)
-
-        var tl2 = gsap.timeline()
-
-        var listHeight = document.querySelector("#content_list").clientHeight;
-        var listLenght = document.querySelectorAll(".layout_section").lenght;
-
-        var sScene = new ScrollMagic.Scene({
-            triggerElement: "#content_list_wrap",
-            duration: scrollHeight,
-            triggerHook: .1
-          })
-          .setTween(tl2)
           .addTo(controller)
       }
 

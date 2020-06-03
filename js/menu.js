@@ -82,9 +82,9 @@ burger_wrap.addEventListener("click", () => {
   burger2_wrap.classList.toggle("burger2");
   burger3_wrap.classList.toggle("burger3");
   if (burgerOn == false) {
-    burger1_wrap.style.transition = ".7s cubic-bezier(0.76, 0, 0.24, 1)";
-    burger2_wrap.style.transition = ".7s cubic-bezier(0.76, 0, 0.24, 1)";
-    burger3_wrap.style.transition = ".7s cubic-bezier(0.76, 0, 0.24, 1)";
+    burger1_wrap.style.transition = ".5s cubic-bezier(1, .25, 0.5, 1)";
+    burger2_wrap.style.transition = ".5s cubic-bezier(1, .25, 0.5, 1)";
+    burger3_wrap.style.transition = ".5s cubic-bezier(1, .25, 0.5, 1)";
     burgerOn = true;
   } else {
     setTimeout(function () {

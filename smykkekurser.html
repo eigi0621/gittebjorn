@@ -275,7 +275,7 @@
         smykkekurser_img_wrap.classList.add("img_wrap");
         let smykkekurser_txt = document.createElement("div");
         smykkekurser_txt.classList.add("txt_wrap");
-        smykkekurser_txt.innerHTML = `${q.content.rendered}`;
+        smykkekurser_txt.innerHTML = q.content.rendered;
         let smykkekurser_img = document.createElement("div");
         smykkekurser_img_wrap.appendChild(smykkekurser_img);
         document.querySelector("#main_grid").appendChild(smykkekurser_img_wrap);
@@ -291,7 +291,10 @@
         let img_txt = document.createElement("div");
         img_txt.classList.add("img_txt");
         img_txt.appendChild(document.querySelector(".txt_wrap h4"));
-        img_txt.appendChild(document.querySelector(".txt_wrap h1"));
+        //img_txt.appendChild(document.querySelector(".txt_wrap h1"));
+        let h1 = document.createElement("h1");
+        h1.innerHTML = "smykke&shy;kurser";
+        img_txt.appendChild(h1);
         smykkekurser_img_wrap.appendChild(img_txt);
 
         startVideo();

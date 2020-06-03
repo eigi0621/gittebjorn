@@ -24,11 +24,10 @@ scroll_wrap.addEventListener("click", () => {
 
 var scrollArrowScene = new ScrollMagic.Scene({
     triggerElement: "#main",
-    duration: "100%",
+    duration: "10%",
     triggerHook: 0
   })
   .setTween(gsap.to(scroll_pos, {
-    y: "150%",
     opacity: "0",
     ease: "none"
   }))

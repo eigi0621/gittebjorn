@@ -80,7 +80,7 @@
     margin: 0;
     display: flex;
     justify-content: flex-end;
-    transform: translate(120px, -15px);
+    transform: translate(150px, -15px);
     transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
   }
 
@@ -100,7 +100,7 @@
     width: calc(100% + 20px);
     margin: 0 9px 0 -10px;
     transform: translateY(30px);
-    transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: .5s cubic-bezier(1, .25, 0.5, 1);
     background: #302E33;
     opacity: 0;
     overflow: hidden;
