@@ -80,7 +80,7 @@
     margin: 0;
     display: flex;
     justify-content: flex-end;
-    transform: translate(150px, -15px);
+    transform: translate(120px, -15px);
     transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
   }
 

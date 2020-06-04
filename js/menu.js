@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", hentJSON_menu);
 //henter pages titler fra wp og lægger dem ind i menuen
 async function hentJSON_menu() {
   //wpEnd sættes efter wp og giver vores json link
-  let wpEnd = `pages?_fields=title,parent,slug`;
+  let wpEnd = `pages?_fields=id,title,parent,slug`;
   //vent på at vi har hentet vores link ned
   const response = await fetch(wp + wpEnd);
   //lav linket om til læsbar json
@@ -16,13 +16,24 @@ async function hentJSON_menu() {
   //for hver t (titel), hvis ingen page parent,
   //lav et li tag med et a tag og sæt det ind i ul tagget i nav
   json.forEach((t) => {
-    if (t.parent != 0) {
-      let li = document.createElement("li");
-      let a = document.createElement("a");
-      a.textContent = t.title.rendered;
-      a.href = `${t.slug}.html`;
-      li.appendChild(a);
-      ul.appendChild(li);
+    if (window.innerWidth < 800 || window.innerWidth > 1200) {
+      if (t.parent != 0) {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.textContent = t.title.rendered;
+        a.href = `${t.slug}.html`;
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+    } else {
+      if (t.parent != 0 || t.id == 31) {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.textContent = t.title.rendered;
+        a.href = `${t.slug}.html`;
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
     }
   })
 }
@@ -36,11 +47,14 @@ let burger3_svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.37 11
 var nav = document.querySelector("nav");
 var gitteBjorn = document.createElement("a");
 gitteBjorn.textContent = "gitte bjørn";
-gitteBjorn.href = "gitte-bjorn.html"
+gitteBjorn.href = "gitte-bjorn.html";
 gitteBjorn.classList.add("nav_link", "no_highlights");
 var smykkekurser = document.createElement("a");
 smykkekurser.textContent = "smykkekurser";
 smykkekurser.classList.add("nav_link", "no_highlights");
+if (window.innerWidth < 800 || window.innerWidth > 1200) {
+  smykkekurser.href = "smykkekurser.html";
+}
 var logo = document.createElement("div");
 logo.id = "anim";
 logo.innerHTML = logo_svg;

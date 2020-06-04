@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="Description" content="Gitte Bjørn - Forside">
+  <meta name="Description" content="Gitte Bjørn - gå ind på enten gitte bjørn eller smykkekurser, smykke kurser">
   <title>Gitte Bjorn Smykkekurser</title>
   <link rel="stylesheet" href="css/basestyle.css">
   <link rel="stylesheet" href="css/tablet.css">
@@ -43,6 +43,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: flex-start;
     }
 
     #gitte_bjorn_img {
@@ -66,8 +67,15 @@
     }
 
     .text_wrap h1 {
-      font-size: 3rem;
-      line-height: 3.5rem;
+      font-size: 2rem;
+      line-height: 2.3rem;
+    }
+
+    @media only screen and (min-width: 400px) {
+      .text_wrap h1 {
+        font-size: 3rem;
+        line-height: 3.5rem;
+      }
     }
 
     @media only screen and (min-width: 600px) {
@@ -97,6 +105,12 @@
       .text_wrap {
         height: 50%;
         width: 350px;
+      }
+
+      button {
+        margin-top: 30px;
+        font-size: 1.3rem;
+        padding: 10px 15px;
       }
     }
 
@@ -132,6 +146,7 @@
         width: 500px;
       }
     }
+
   </style>
 </head>
 
@@ -146,12 +161,14 @@
         <div class="text_wrap">
           <h1>Gitte Bjørn</h1>
           <h4>Professionel guldsmed og kunstner, se mine værker og lær om mig her</h4>
+          <button>Undersøg mine værker</button>
         </div>
       </a>
       <a id="smykkekurser_img" class="col" href="smykkekurser.html">
         <div class="text_wrap">
           <h1>Smykke&shy;kurser</h1>
           <h4>Undersøg og tilmeld dig Danmarks bedste ikke-kompetencegivende smykkekurser her</h4>
+          <button>Se smykkekurserne</button>
         </div>
       </a>
     </div>
@@ -179,4 +196,6 @@
   </footer>
   <script src="js/menu.js"></script>
   <script src="js/smoothScroll.js"></script>
-</body></html>
+</body>
+
+</html>

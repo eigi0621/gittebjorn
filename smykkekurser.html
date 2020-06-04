@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne">
+  <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne, og om skykkekurser og smykke kurser">
   <title>Gitte Bjorn - Smykkekurser</title>
   <link rel="stylesheet" href="css/basestyle.css">
   <link rel="stylesheet" href="css/tablet.css">
@@ -264,9 +264,10 @@
       const response = await fetch(wp + wpEnd);
       let json = await response.json();
 
-      let wpEndIntro = `pages?slug=smykkekurser&_fields=content,title`;
+      let wpEndIntro = `pages?slug=om-smykkekurser&_fields=content,title`;
       const responseIntro = await fetch(wp + wpEndIntro);
       let jsonIntro = await responseIntro.json();
+      console.log(jsonIntro);
 
       let smykkekurser_img_wrap = document.createElement("div");
       smykkekurser_img_wrap.classList.add("img_wrap");
