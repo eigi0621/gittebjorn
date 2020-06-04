@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Gitte Bjørn - Om Kurserne, en side der fortæller om hvilke kurser der bliver udbudt">
+  <title>Gitte Bjorn - Kurser</title>
+  <link rel="stylesheet" href="css/basestyle.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="https://use.typekit.net/lge2vfw.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <style>
+    @media only screen and (min-width: 800px) {
+      .scroll_pos {
+        justify-content: flex-start;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+      .kursus_section {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-column-gap: 30px;
+        grid-template-areas:
+          "a a a a a b b c d e"
+          "f f f f f f f f f f";
+        padding: 20px 20px 20px 20px;
+        border-left: 1px solid #898C7E;
+        border-right: 1px solid #898C7E;
+        border-bottom: 1px solid #898C7E;
+        height: 77px;
+        overflow: hidden;
+      }
+
+      .section_height {
+        height: auto;
+      }
+
+      .kursus_section:nth-of-type(odd) {
+        background-color: #EAEBE9;
+      }
+
+      .kursus_section:last-child {
+        margin-bottom: 200px;
+      }
+
+      .kursus_section:first-child {
+        background-color: #898C7E;
+        padding: 10px 20px;
+        height: auto;
+      }
+
+      .kursus_section:first-child p {
+        color: #fff;
+        font-size: 1.4rem;
+        font-family: mrs-eaves, serif;
+        font-weight: 700;
+        font-style: italic;
+        padding: 0;
+        margin: 0;
+      }
+
+      .kursus_section .title_wrap {
+        grid-area: a;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .kursus_section .ugedag {
+        grid-area: b;
+        margin: 4px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-transform: capitalize;
+      }
+
+      .kursus_section .start_tid {
+        grid-area: c;
+        margin: 4px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .kursus_section .slut_tid {
+        grid-area: d;
+        margin: 4px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .kursus_section .laes_mere_wrap {
+        grid-area: e;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .kursus_section .laes_mere_wrap .laes_mere {
+        margin: 0;
+      }
+
+      .kursus_section .indhold_wrap {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #898C7E;
+        grid-area: f;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 30px;
+        grid-template-areas:
+          "y z";
+      }
+
+      .kursus_section .indhold_wrap .text_wrap {
+        grid-area: y;
+      }
+
+      .kursus_section .indhold_wrap .info_wrap {
+        grid-area: z;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+
+      .kursus_section .indhold_wrap .almen_pris,
+      .kursus_section .indhold_wrap .nedsat_pris {
+        margin: 1rem 0 0 0;
+      }
+
+      .kursus_section .indhold_wrap .almen_pris_p,
+      .kursus_section .indhold_wrap .nedsat_pris_p {
+        margin: 0 0 1rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+    </nav>
+  </header>
+  <main id="main">
+    <main id="main_grid"></main>
+    <div id="fill">
+      <section class="kursus_section">
+        <div class="title_wrap">
+          <p class="titel">Titel</p>
+        </div>
+        <p class="ugedag">Ugedag</p>
+        <p class="start_tid">Starttid</p>
+        <p class="slut_tid">Sluttid</p>
+      </section>
+    </div>
+  </main>
+  <footer id="footer">
+    <div class="footer_info">
+      <h4>Gitte Bjørn Smykkekurser</h4>
+      <p>Prags Boulevard 63C, 2300 København S</p>
+      <a href="mailto:kontakt@gittebjorn.dk">
+        <p>kontakt@gittebjorn.dk</p>
+      </a>
+      <a href="cookies-og-privatlivspolitik.html">
+        <p>Cookie- og privatlivspolitik</p>
+      </a>
+      <div class="footer_img">
+        <img src="img/insta.svg" alt="instagram ikon">
+        <img src="img/fb.svg" alt="facebook ikon">
+        <img src="img/yt.svg" alt="youtube ikon">
+      </div>
+    </div>
+    <div class="footer_logo">
+      <img src="img/gb_logo_svg_w.svg" alt="Gitte Bjørn Logo">
+      <p>KEA MMD 2. sem. eksamen 2020</p>
+    </div>
+  </footer>
+  <script src="js/menu.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
+  <script src="js/smoothScroll.js"></script>
+  <script src="js/totop.js"></script>
+  <script>
+    let jsonIntro = [];
+    document.addEventListener("DOMContentLoaded", hentJSON_smykkekurser);
+
+    async function hentJSON_smykkekurser() {
+      let wpEnd = `kursus?_fields=id,title,kategori,img,p,niveau,holdnr,start_tid,slut_tid,ugedag,underviser,forste_mode,modegange,lektioner,almen_pris,nedsat_pris,cta,tilmeld_link`;
+      const response = await fetch(wp + wpEnd);
+      let json = await response.json();
+
+      json.forEach((t) => {
+        let s = document.createElement("section");
+        s.classList.add("kursus_section");
+        let title_wrap = document.createElement("div");
+        title_wrap.classList.add("title_wrap");
+        let titel = document.createElement("h4");
+        titel.classList.add("titel");
+        titel.innerHTML = t.title.rendered;
+        let ugedag = document.createElement("p");
+        ugedag.classList.add("ugedag");
+        ugedag.innerHTML = t.ugedag;
+        let start_tid = document.createElement("p");
+        start_tid.classList.add("start_tid");
+        start_tid.innerHTML = `${t.start_tid.split(":")[0]}:${t.start_tid.split(":")[1]}`;
+        let slut_tid = document.createElement("p");
+        slut_tid.classList.add("slut_tid");
+        slut_tid.innerHTML = `${t.slut_tid.split(":")[0]}:${t.slut_tid.split(":")[1]}`;
+        let laes_mere_wrap = document.createElement("a");
+        laes_mere_wrap.classList.add("laes_mere_wrap");
+        //laes_mere_wrap.href = `kursus-detalje.html?id=${t.id}`;
+        let laes_mere = document.createElement("button");
+        laes_mere.classList.add("laes_mere");
+        laes_mere.innerHTML = "LÆS MERE";
+        let closed = true;
+        laes_mere.addEventListener("click", function() {
+          if (closed == true) {
+            gsap.set(s, {
+              height: "auto"
+            })
+            gsap.from(s, 0.6, {
+              height: "77px",
+              ease: "power4.out"
+            })
+            this.style.backgroundColor = "#898C7E";
+            closed = false;
+          } else {
+            gsap.set(s, {
+              height: "auto"
+            })
+            gsap.to(s, 0.6, {
+              height: "77px",
+              ease: "power4.out"
+            })
+            this.style.backgroundColor = "";
+            closed = true;
+          }
+        })
+        let indhold_wrap = document.createElement("div");
+        indhold_wrap.classList.add("indhold_wrap");
+        let text_wrap = document.createElement("div");
+        text_wrap.classList.add("text_wrap");
+        let text = document.createElement("p");
+        text.classList.add("text");
+        text.innerHTML = `<strong>Beskrivelse:</strong> ${t.p}`;
+        let niveau = document.createElement("p");
+        niveau.classList.add("niveau");
+        niveau.innerHTML = `<strong>Niveau:</strong> ${t.niveau}`;
+        let info_wrap = document.createElement("div");
+        info_wrap.classList.add("info_wrap");
+        let holdnr = document.createElement("p");
+        holdnr.classList.add("holdnr");
+        holdnr.innerHTML = `<strong>Holdnummer:</strong> ${t.holdnr}`;
+        let start_tid2 = document.createElement("p");
+        start_tid2.classList.add("start_tid2");
+        start_tid2.innerHTML = `<strong>Starttidspunkt:</strong> ${t.start_tid.split(":")[0]}:${t.start_tid.split(":")[1]}`;
+        let slut_tid2 = document.createElement("p");
+        slut_tid2.classList.add("slut_tid2");
+        slut_tid2.innerHTML = `<strong>Sluttidspunkt:</strong> ${t.slut_tid.split(":")[0]}:${t.slut_tid.split(":")[1]}`;
+        let underviser = document.createElement("p");
+        underviser.classList.add("underviser");
+        underviser.innerHTML = `<strong>Underviser:</strong> ${t.underviser}`;
+        let forste_mode = document.createElement("p");
+        forste_mode.classList.add("forste_mode");
+        forste_mode.innerHTML = `<strong>Første mødegang:</strong> ${t.forste_mode.split(":")[0]}:${t.forste_mode.split(":")[1]}`;
+        let modegange = document.createElement("p");
+        modegange.classList.add("modegange");
+        modegange.innerHTML = `<strong>Mødegange:</strong> ${t.modegange}`;
+        let lektioner = document.createElement("p");
+        lektioner.classList.add("lektioner");
+        lektioner.innerHTML = `<strong>Lektioner:</strong> ${t.lektioner}`;
+        let almen_pris = document.createElement("h3");
+        almen_pris.classList.add("almen_pris");
+        almen_pris.innerHTML = `Almen pris`;
+        let almen_pris_p = document.createElement("h4");
+        almen_pris_p.classList.add("almen_pris_p");
+        almen_pris_p.innerHTML = pris_split(t.almen_pris);
+        let nedsat_pris = document.createElement("h3");
+        nedsat_pris.classList.add("nedsat_pris");
+        nedsat_pris.innerHTML = `Nedsat pris`;
+        let nedsat_pris_p = document.createElement("h4");
+        nedsat_pris_p.classList.add("nedsat_pris_p");
+        nedsat_pris_p.innerHTML = pris_split(t.nedsat_pris);
+        let cta_wrap = document.createElement("a");
+        cta_wrap.classList.add("cta_wrap");
+        cta_wrap.href = t.tilmeld_link;
+        let cta = document.createElement("button");
+        cta.classList.add("cta");
+        cta.innerHTML = t.cta;
+
+
+
+
+
+
+
+
+        title_wrap.appendChild(underviser);
+        title_wrap.appendChild(titel);
+        s.appendChild(title_wrap);
+        s.appendChild(ugedag);
+        s.appendChild(start_tid);
+        s.appendChild(slut_tid);
+        laes_mere_wrap.appendChild(laes_mere);
+        s.appendChild(laes_mere_wrap);
+        text_wrap.appendChild(text);
+        text_wrap.appendChild(niveau);
+        indhold_wrap.appendChild(text_wrap);
+        text_wrap.appendChild(holdnr);
+        text_wrap.appendChild(start_tid2);
+        text_wrap.appendChild(slut_tid2);
+        text_wrap.appendChild(underviser);
+        text_wrap.appendChild(forste_mode);
+        text_wrap.appendChild(modegange);
+        text_wrap.appendChild(lektioner);
+        info_wrap.appendChild(almen_pris);
+        info_wrap.appendChild(almen_pris_p);
+        info_wrap.appendChild(nedsat_pris);
+        info_wrap.appendChild(nedsat_pris_p);
+        cta_wrap.appendChild(cta);
+        info_wrap.appendChild(cta_wrap);
+        indhold_wrap.appendChild(info_wrap);
+        s.appendChild(indhold_wrap);
+        document.querySelector("#fill").appendChild(s);
+      })
+    }
+
+    var pris_split = function(pris) {
+      var almen_split = pris.split("");
+      var nrlengt = almen_split.length;
+      if (nrlengt > 6) {
+        return pris.split("").slice(0, nrlengt - 6).join() + "." + last(almen_split, 6).join("").split(".")[0] + "," + last(almen_split, 6).join("").split(".")[1];
+      } else {
+        return pris.split(".")[0] + "," + pris.split(".")[1];
+      }
+    }
+
+    var last = function(array, n) {
+      if (array == null)
+        return void 0;
+      if (n == null)
+        return array[array.length - 1];
+      return array.slice(Math.max(array.length - n, 0));
+    }
+  </script>
+</body></html>

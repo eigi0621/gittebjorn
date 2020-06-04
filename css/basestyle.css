@@ -78,6 +78,10 @@ p {
   color: #464743;
 }
 
+strong {
+  font-weight: 500;
+}
+
 button {
   font-size: .8rem;
   font-family: nobel, sans-serif;

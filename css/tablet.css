@@ -63,7 +63,7 @@
   }
 
   .nav_link {
-    padding: 12px 20px 10px 20px;
+    padding: 12px 10px 10px 10px;
     color: #000;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -81,7 +81,7 @@
     display: flex;
     justify-content: flex-end;
     transform: translate(120px, -15px);
-    transition: .7s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: .3s cubic-bezier(0.76, 0, 0.24, 1);
   }
 
   .nav_link:hover:last-child:after {
@@ -93,14 +93,15 @@
   }
 
   .nav_link:hover {
-    color: #8B8E7E;
+    background-color: #8B8E7E;
+    color: #fff;
   }
 
   nav ul {
     width: calc(100% + 20px);
     margin: 0 9px 0 -10px;
-    transform: translateY(30px);
-    transition: .5s cubic-bezier(1, .25, 0.5, 1);
+    transform: translateY(13px);
+    transition: .3s cubic-bezier(1, .25, 0.5, 1);
     background: #302E33;
     opacity: 0;
     overflow: hidden;
