@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne">
-  <title>Gitte Bjorn</title>
+  <title>Gitte Bjorn - Smykkekurser</title>
   <link rel="stylesheet" href="css/basestyle.css">
   <link rel="stylesheet" href="css/tablet.css">
   <link rel="stylesheet" href="css/desktop.css">
@@ -135,7 +135,6 @@
 
       .smyk_layout_section:nth-child(2) .smyk_besk_wrap {
         grid-column: 5/7;
-        margin: 20px 0;
       }
 
       .smyk_layout_section:nth-child(2) .smyk_content_wrap img:nth-child(3) {
@@ -265,50 +264,36 @@
       const response = await fetch(wp + wpEnd);
       let json = await response.json();
 
-      let wpEndIntro = `pages?slug=smykkekurser&_embed`;
+      let wpEndIntro = `pages?slug=smykkekurser&_fields=content,title`;
       const responseIntro = await fetch(wp + wpEndIntro);
       let jsonIntro = await responseIntro.json();
-      console.log(jsonIntro);
 
-      jsonIntro.forEach((q) => {
-        let smykkekurser_img_wrap = document.createElement("div");
-        smykkekurser_img_wrap.classList.add("img_wrap");
-        let smykkekurser_txt = document.createElement("div");
-        smykkekurser_txt.classList.add("txt_wrap");
-        smykkekurser_txt.innerHTML = q.content.rendered;
-        let smykkekurser_img = document.createElement("div");
-        smykkekurser_img_wrap.appendChild(smykkekurser_img);
-        document.querySelector("#main_grid").appendChild(smykkekurser_img_wrap);
-        document.querySelector("#main_grid").appendChild(smykkekurser_txt);
-        smykkekurser_img.appendChild(document.querySelector(".txt_wrap figure"));
-        let smykkekurser_btn_a = document.createElement("a");
-        smykkekurser_btn_a.href = "kurser.html";
-        let smykkekurser_btn = document.createElement("button");
-        smykkekurser_btn.innerHTML = "Se vores kurser";
-        smykkekurser_txt.appendChild(smykkekurser_btn_a);
-        smykkekurser_btn_a.appendChild(smykkekurser_btn);
-        smykkekurser_txt.insertBefore(smykkekurser_btn_a, smykkekurser_txt.childNodes[4]);
-        let img_txt = document.createElement("div");
-        img_txt.classList.add("img_txt");
-        img_txt.appendChild(document.querySelector(".txt_wrap h4"));
-        //img_txt.appendChild(document.querySelector(".txt_wrap h1"));
-        let h1 = document.createElement("h1");
-        h1.innerHTML = "smykke&shy;kurser";
-        img_txt.appendChild(h1);
-        smykkekurser_img_wrap.appendChild(img_txt);
+      let smykkekurser_img_wrap = document.createElement("div");
+      smykkekurser_img_wrap.classList.add("img_wrap");
+      let smykkekurser_txt = document.createElement("div");
+      smykkekurser_txt.classList.add("txt_wrap");
+      smykkekurser_txt.innerHTML = jsonIntro[0].content.rendered;
+      let smykkekurser_img = document.createElement("div");
+      smykkekurser_img_wrap.appendChild(smykkekurser_img);
+      document.querySelector("#main_grid").appendChild(smykkekurser_img_wrap);
+      document.querySelector("#main_grid").appendChild(smykkekurser_txt);
+      //smykkekurser_img.appendChild(document.querySelector(".txt_wrap figure"));
+      let img_txt = document.createElement("div");
+      img_txt.classList.add("img_txt");
+      img_txt.appendChild(document.querySelector(".txt_wrap h4"));
+      //img_txt.appendChild(document.querySelector(".txt_wrap h1"));
+      let h1 = document.createElement("h1");
+      h1.innerHTML = "smykke&shy;kurser";
+      img_txt.appendChild(h1);
+      smykkekurser_img_wrap.appendChild(img_txt);
 
-        startVideo();
-      });
-
-      function startVideo() {
-        let vid = document.querySelector("video");
-        vid.preload = "metadata";
-        vid.src = vid.src + "#t=4";
-        vid.muted = true;
-        vid.loop = true;
-        vid.autoplay = false;
-        vid.play();
-      }
+      let vid = document.createElement("video");
+      vid.preload = "metadata";
+      vid.src = "http://eigilnikolajsen.dk/kea/10_eksamen/wordpress/wp-content/uploads/2020/05/gittebjørn_final_timeline_grade1.mp4#t=4";
+      vid.muted = true;
+      vid.loop = true;
+      vid.play();
+      smykkekurser_img.appendChild(vid);
 
       json.forEach((t) => {
         let s = document.createElement("section");

@@ -194,6 +194,7 @@
     .img_wrapper .scale_down {
       transform: scale(1);
     }
+
   </style>
 </head>
 
@@ -244,6 +245,7 @@
           aarstal.textContent = t.aarstal;
           let titel = document.createElement("h1");
           titel.innerHTML = t.title.rendered;
+          document.querySelector("head title").textContent = `Gitte Bjorn - ${t.title.rendered}`;
           let besk = document.createElement("p");
           besk.innerHTML = t.beskrivelse;
           let cta = document.createElement("button");
@@ -319,5 +321,8 @@
           .addTo(controller)
       })
     }
+
   </script>
-</body></html>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Gitte Bjørn - Om smykkekurserne, en side der fortæller om smykkerkurserne">
-  <title>Gitte Bjorn</title>
+  <title>Gitte Bjorn - Værker</title>
   <link rel="stylesheet" href="css/basestyle.css">
   <link rel="stylesheet" href="css/tablet.css">
   <link rel="stylesheet" href="css/desktop.css">
@@ -662,6 +662,7 @@
         grid-area: i;
       }
     }
+
   </style>
 </head>
 
@@ -796,14 +797,22 @@
         content_wrap.appendChild(besk_wrap);
 
         let img = document.createElement("img");
+        img.style.cursor = "pointer";
         img.src = t.thumb[0].guid;
         img.alt = t.thumb[0].post_excerpt;
+        img.addEventListener("click", () => {
+          location.href = `vaerk.html?id=${s.dataset.secnr}`;
+        })
         content_wrap.appendChild(img);
 
         if (N % 7 == 1 || N % 7 == 4) {
           let img2 = document.createElement("img");
+          img2.style.cursor = "pointer";
           img2.src = t.thumb[1].guid;
           img2.alt = t.thumb[1].post_excerpt;
+          img2.addEventListener("click", () => {
+            location.href = `vaerk.html?id=${s.dataset.secnr}`;
+          })
           content_wrap.appendChild(img2);
         }
 
@@ -1008,5 +1017,8 @@
         .setTween(timelineCV)
         .addTo(controller)
     }
+
   </script>
-</body></html>
+</body>
+
+</html>
