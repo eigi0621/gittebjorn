@@ -25,6 +25,10 @@
       color: #302E33;
     }
 
+    .sorter_knap {
+      margin: 10px 10px 0 0;
+    }
+
     main main {
       margin-bottom: 20px;
     }
@@ -536,6 +540,31 @@
       startJson = false;
     }
 
+    async function hentJSON_sorter() {
+      let wpEnd = `kurser?_fields=title,kategori`;
+      const response = await fetch(wp + wpEnd);
+      let json = await response.json();
+
+      json.forEach((b) => {
+        let button = document.createElement("button");
+        button.classList.add("sorter_knap");
+        button.innerHTML = b.title.rendered;
+        button.dataset.kat = b.kategori;
+        document.querySelector("#fill_sorter").appendChild(button);
+      })
+
+      document.querySelectorAll(".sorter_knap").forEach((k) => {
+        k.addEventListener("click", function() {
+          document.querySelectorAll(".sorter_knap").forEach((l) => {
+            l.classList.remove("valgt");
+          })
+          console.log("sorter " + this.dataset.kat);
+          hentJSON_kurser(this.dataset.kat);
+          this.classList.add("valgt");
+        });
+      })
+    }
+
     async function hentJSON_smykkekurser() {
       let wpEnd = `kurser?_fields=title,h4,p,cta,img,tilmelding_link`;
       const response = await fetch(wp + wpEnd);
@@ -570,31 +599,6 @@
         content_wrap.appendChild(img);
         s.appendChild(content_wrap);
         document.querySelector("#fill2").appendChild(s);
-      })
-    }
-
-    async function hentJSON_sorter() {
-      let wpEnd = `kurser?_fields=title,kategori`;
-      const response = await fetch(wp + wpEnd);
-      let json = await response.json();
-
-      json.forEach((b) => {
-        let button = document.createElement("button");
-        button.classList.add("sorter_knap");
-        button.innerHTML = b.title.rendered;
-        button.dataset.kat = b.kategori;
-        document.querySelector("#fill_sorter").appendChild(button);
-      })
-
-      document.querySelectorAll(".sorter_knap").forEach((k) => {
-        k.addEventListener("click", function() {
-          document.querySelectorAll(".sorter_knap").forEach((l) => {
-            l.classList.remove("valgt");
-          })
-          console.log("sorter " + this.dataset.kat);
-          hentJSON_kurser(this.dataset.kat);
-          this.classList.add("valgt");
-        });
       })
     }
 

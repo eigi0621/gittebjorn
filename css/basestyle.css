@@ -103,11 +103,6 @@ button {
   transition: .7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-button:hover {
-  background-color: #654D87;
-  transform: scale(1.05);
-}
-
 button:active {
   transform: scale(1);
   background-color: #544270;
